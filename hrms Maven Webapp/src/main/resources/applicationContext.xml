@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://www.springframework.org/schema/context
+    		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    <!-- SessionFactory -->
+    <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    	<property name="url" value="jdbc:mysql://127.0.0.1:3306/hrms" />
+    	<property name="username" value="root" />
+    	<property name="password" value="990607" />
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    </bean>
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource" />
+    	<property name="mappingDirectoryLocations" value="classpath:com/hrms/entity/" />
+    	<property name="hibernateProperties">
+    		<props>
+    			<prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
+    			<prop key="show_sql">true</prop>
+    			<prop key="format_sql">true</prop>
+    		</props>
+    	</property>
+    </bean>
+    <!-- Transaction -->
+    <bean id="transactionManager"  class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <tx:advice id="tm" transaction-manager="transactionManager">
+    	<tx:attributes>
+    		<tx:method name="get*" read-only="true"/>
+    		<tx:method name="save*" read-only="false"/>
+    		<tx:method name="update*" read-only="false"/>
+    		<tx:method name="*" read-only="true"/>
+    	</tx:attributes>
+    </tx:advice>
+    <aop:config>
+    	<aop:pointcut expression="execution(* com.hrms.service.impl.*.*(..))" id="servicePointCut"/>
+    	<aop:advisor advice-ref="tm" pointcut-ref="servicePointCut"/>
+    </aop:config>
+    <!-- Dao -->
+    
+    <!-- Service -->
+    
+    <!-- Action -->
+    
+</beans>
