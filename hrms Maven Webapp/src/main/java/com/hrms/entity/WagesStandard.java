@@ -17,6 +17,7 @@ public class WagesStandard implements java.io.Serializable {
 	private Double communicationAllowance;
 	private Double lunchAllowance;
 	private Set payWageses = new HashSet(0);
+	private Set staffs = new HashSet(0);
 
 	// Constructors
 
@@ -35,12 +36,14 @@ public class WagesStandard implements java.io.Serializable {
 
 	/** full constructor */
 	public WagesStandard(Double basicWages, Double transportationAllowance,
-			Double communicationAllowance, Double lunchAllowance, Set payWageses) {
+			Double communicationAllowance, Double lunchAllowance,
+			Set payWageses, Set staffs) {
 		this.basicWages = basicWages;
 		this.transportationAllowance = transportationAllowance;
 		this.communicationAllowance = communicationAllowance;
 		this.lunchAllowance = lunchAllowance;
 		this.payWageses = payWageses;
+		this.staffs = staffs;
 	}
 
 	// Property accessors
@@ -91,6 +94,14 @@ public class WagesStandard implements java.io.Serializable {
 
 	public void setPayWageses(Set payWageses) {
 		this.payWageses = payWageses;
+	}
+
+	public Set getStaffs() {
+		return this.staffs;
+	}
+
+	public void setStaffs(Set staffs) {
+		this.staffs = staffs;
 	}
 
 }

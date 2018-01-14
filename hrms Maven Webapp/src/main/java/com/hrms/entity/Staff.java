@@ -14,8 +14,10 @@ public class Staff implements java.io.Serializable {
 
 	private Long id;
 	private DataDictionary dataDictionaryByAcademicdegreeId;
+	private DataDictionary dataDictionaryByStatus;
 	private DataDictionary dataDictionaryByEducationId;
 	private DataDictionary dataDictionaryByTypeId;
+	private WagesStandard wagesStandard;
 	private Position position;
 	private Department department;
 	private String no;
@@ -23,8 +25,6 @@ public class Staff implements java.io.Serializable {
 	private String password;
 	private String sex;
 	private Date bornDate;
-	private Long status;
-	private Long wsid;
 	private String address;
 	private String phone;
 	private String email;
@@ -48,31 +48,35 @@ public class Staff implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Staff(DataDictionary dataDictionaryByTypeId, String no, String name,
-			String password, Date bornDate, Long status, Long wsid) {
+	public Staff(DataDictionary dataDictionaryByStatus,
+			DataDictionary dataDictionaryByTypeId, WagesStandard wagesStandard,
+			String no, String name, String password, Date bornDate) {
+		this.dataDictionaryByStatus = dataDictionaryByStatus;
 		this.dataDictionaryByTypeId = dataDictionaryByTypeId;
+		this.wagesStandard = wagesStandard;
 		this.no = no;
 		this.name = name;
 		this.password = password;
 		this.bornDate = bornDate;
-		this.status = status;
-		this.wsid = wsid;
 	}
 
 	/** full constructor */
 	public Staff(DataDictionary dataDictionaryByAcademicdegreeId,
+			DataDictionary dataDictionaryByStatus,
 			DataDictionary dataDictionaryByEducationId,
-			DataDictionary dataDictionaryByTypeId, Position position,
-			Department department, String no, String name, String password,
-			String sex, Date bornDate, Long status, Long wsid, String address,
+			DataDictionary dataDictionaryByTypeId, WagesStandard wagesStandard,
+			Position position, Department department, String no, String name,
+			String password, String sex, Date bornDate, String address,
 			String phone, String email, Set positionAdjustments,
 			Set payWageses, Set cultivateRecords, Set attendances,
 			Set staffMobilizations, Set cultivateStaffs, Set staffCertificates,
 			Set quitStaffs, Set holidaies, Set personnelFileses,
 			Set punishmentRewards, Set staffContracts) {
 		this.dataDictionaryByAcademicdegreeId = dataDictionaryByAcademicdegreeId;
+		this.dataDictionaryByStatus = dataDictionaryByStatus;
 		this.dataDictionaryByEducationId = dataDictionaryByEducationId;
 		this.dataDictionaryByTypeId = dataDictionaryByTypeId;
+		this.wagesStandard = wagesStandard;
 		this.position = position;
 		this.department = department;
 		this.no = no;
@@ -80,8 +84,6 @@ public class Staff implements java.io.Serializable {
 		this.password = password;
 		this.sex = sex;
 		this.bornDate = bornDate;
-		this.status = status;
-		this.wsid = wsid;
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
@@ -118,6 +120,14 @@ public class Staff implements java.io.Serializable {
 		this.dataDictionaryByAcademicdegreeId = dataDictionaryByAcademicdegreeId;
 	}
 
+	public DataDictionary getDataDictionaryByStatus() {
+		return this.dataDictionaryByStatus;
+	}
+
+	public void setDataDictionaryByStatus(DataDictionary dataDictionaryByStatus) {
+		this.dataDictionaryByStatus = dataDictionaryByStatus;
+	}
+
 	public DataDictionary getDataDictionaryByEducationId() {
 		return this.dataDictionaryByEducationId;
 	}
@@ -133,6 +143,14 @@ public class Staff implements java.io.Serializable {
 
 	public void setDataDictionaryByTypeId(DataDictionary dataDictionaryByTypeId) {
 		this.dataDictionaryByTypeId = dataDictionaryByTypeId;
+	}
+
+	public WagesStandard getWagesStandard() {
+		return this.wagesStandard;
+	}
+
+	public void setWagesStandard(WagesStandard wagesStandard) {
+		this.wagesStandard = wagesStandard;
 	}
 
 	public Position getPosition() {
@@ -189,22 +207,6 @@ public class Staff implements java.io.Serializable {
 
 	public void setBornDate(Date bornDate) {
 		this.bornDate = bornDate;
-	}
-
-	public Long getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(Long status) {
-		this.status = status;
-	}
-
-	public Long getWsid() {
-		return this.wsid;
-	}
-
-	public void setWsid(Long wsid) {
-		this.wsid = wsid;
 	}
 
 	public String getAddress() {

@@ -22,6 +22,7 @@ public class DataDictionary implements java.io.Serializable {
 	private Set cultivateStaffs = new HashSet(0);
 	private Set quitStaffs = new HashSet(0);
 	private Set holidaies = new HashSet(0);
+	private Set staffsForStatus = new HashSet(0);
 	private Set positionAdjustments = new HashSet(0);
 	private Set attendances = new HashSet(0);
 	private Set staffsForTypeId = new HashSet(0);
@@ -43,7 +44,8 @@ public class DataDictionary implements java.io.Serializable {
 			Set staffMobilizations, Set staffsForEducationId,
 			Set staffsForAcademicdegreeId, Set cultivateRecords,
 			Set cultivateStaffs, Set quitStaffs, Set holidaies,
-			Set positionAdjustments, Set attendances, Set staffsForTypeId) {
+			Set staffsForStatus, Set positionAdjustments, Set attendances,
+			Set staffsForTypeId) {
 		this.tableColumn = tableColumn;
 		this.value = value;
 		this.discription = discription;
@@ -54,6 +56,7 @@ public class DataDictionary implements java.io.Serializable {
 		this.cultivateStaffs = cultivateStaffs;
 		this.quitStaffs = quitStaffs;
 		this.holidaies = holidaies;
+		this.staffsForStatus = staffsForStatus;
 		this.positionAdjustments = positionAdjustments;
 		this.attendances = attendances;
 		this.staffsForTypeId = staffsForTypeId;
@@ -147,6 +150,14 @@ public class DataDictionary implements java.io.Serializable {
 
 	public void setHolidaies(Set holidaies) {
 		this.holidaies = holidaies;
+	}
+
+	public Set getStaffsForStatus() {
+		return this.staffsForStatus;
+	}
+
+	public void setStaffsForStatus(Set staffsForStatus) {
+		this.staffsForStatus = staffsForStatus;
 	}
 
 	public Set getPositionAdjustments() {
