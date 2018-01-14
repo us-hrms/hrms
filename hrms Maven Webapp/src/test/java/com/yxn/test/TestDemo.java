@@ -17,4 +17,8 @@ public class TestDemo {
 	void one(){
 		//编写测试主体
 	}
+	@Test
+	void two(){
+		//编写测试主体
+	}
 }
