@@ -17,9 +17,4 @@ public class TestDemo {
 	void one(){
 		//编写测试主体
 	}
-	
-	@Test
-	void three(){
-		//编写测试主体
-	}
 }
