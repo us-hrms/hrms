@@ -15,5 +15,17 @@ public interface StaffService {
 	 */
 	boolean login(Staff staff);
 	
-	List<Staff> get();
+	/**
+	 * 获得所有员工
+	 * @return 员工集合
+	 */
+	List<Staff> getStaffs();
+	
+
+	/**
+	 * 按员工对象内的条件
+	 * 查询所有员工
+	 * @return 员工集合
+	 */
+	List<Staff> getStaffs(Staff staff);
 }
