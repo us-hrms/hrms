@@ -46,9 +46,42 @@
     	<aop:advisor advice-ref="tm" pointcut-ref="servicePointCut"/>
     </aop:config>
     <!-- Dao -->
-    
+    <bean name="dao" class="com.hrms.dao.impl.DaoImpl">
+         <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <!-- Service -->
-    
+    <!-- 员工表 -->
+    <bean name="staffServiceImpl" class="com.hrms.service.impl.StaffServiceImpl">
+        <property name="dao" ref="dao"/>
+    </bean>
+    <!-- 职位表 -->
+    <bean name="positionServiceimpl" class="com.hrms.service.impl.PositionServiceImpl">
+   		<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 部门表 -->
+    <bean name="departmentServiceImpl" class="com.hrms.service.impl.DepartmentServiceImpl">
+   		<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 假期表 -->
+    <bean name="holidayServiceImpl" class="com.hrms.service.impl.HolidayServiceImpl">
+     	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 职位调整表 -->
+    <bean name="positionAdjustmentServiceImpl" class="com.hrms.service.impl.PositionAdjustmentServiceImpl">
+        <property name="dao" ref="dao"/>
+    </bean>
+    <!-- 离职员工表 -->
+    <bean name="quitStaffServiceImpl" class="com.hrms.service.impl.QuitStaffServiceImpl">
+        <property name="dao" ref="dao"/>
+    </bean>
+    <!-- 人事档案表 -->
+    <bean name="personnelFilesServiceImpl" class="com.hrms.service.impl.PersonnelFilesServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 员工合同表 -->
+    <bean name="staffContractServiceImpl" class="com.hrms.service.impl.StaffContractServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
     <!-- Action -->
     
 </beans>
