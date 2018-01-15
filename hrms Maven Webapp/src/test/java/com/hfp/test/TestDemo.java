@@ -14,7 +14,7 @@ public class TestDemo {
 	 * 每个功能/服务层方法  都写一个方法
 	 */
 	@Test
-	void one(){
+	public void one(){
 		//编写测试主体
 	}
 }

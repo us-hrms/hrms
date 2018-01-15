@@ -2,6 +2,11 @@ package com.hrms.page;
 
 import java.io.Serializable;
 
+/**
+ * 页面数据类
+ * @author hfp
+ *
+ */
 public class Page implements Serializable {
 	//页面显示数
 	private Integer pageSize;
