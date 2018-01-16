@@ -82,6 +82,34 @@
     <bean name="staffContractServiceImpl" class="com.hrms.service.impl.StaffContractServiceImpl">
     	<property name="dao" ref="dao"/>
     </bean>
+    <!-- 出勤表 -->
+    <bean name="attendanceServiceImpl" class="com.hrms.service.impl.AttendanceServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 培训平台表 -->
+    <bean name="cultivateServiceImpl" class="com.hrms.service.impl.CultivateServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 培训记录表 -->
+    <bean name="cultivateRecordServiceImpl" class="com.hrms.service.impl.CultivateRecordServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 员工培训记录表 -->
+    <bean name="cultivateStaffServiceImpl" class="com.hrms.service.impl.CultivateStaffServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 薪酬发放表 -->
+    <bean name="payWagesServiceImpl" class="com.hrms.service.impl.PayWagesServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 工资标准表 -->
+    <bean name="wagesStandardServiceImpl" class="com.hrms.service.impl.WagesStandardServiceImpl">
+    	<property name="dao" ref="dao"/>
+    </bean>
+    <!-- 奖惩记录表 -->
+    <bean name="punishmentRewardServiceImpl" class="com.hrms.service.impl.PunishmentRewardServiceImpl">
+        <property name="dao" ref="dao"/> 
+    </bean>
     <!-- Action -->
     
 </beans>
