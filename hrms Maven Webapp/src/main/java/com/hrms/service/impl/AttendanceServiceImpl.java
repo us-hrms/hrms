@@ -67,6 +67,18 @@ public class AttendanceServiceImpl implements AttendanceService {
 	public void setDao(Dao dao) {
 		this.dao = dao;
 	}
+
+	@Override
+	public boolean saveAttendance(Attendance attendance) {
+		// TODO Auto-generated method stub
+		try {
+			dao.save(attendance);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
 	
 	
 	

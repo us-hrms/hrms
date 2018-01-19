@@ -8,6 +8,13 @@ import com.hrms.entity.Attendance;
 public interface AttendanceService {
 	
 	/**
+	 * ±£´æ
+	 * @param attendance
+	 * @return
+	 */
+	boolean  saveAttendance(Attendance attendance);
+	
+	/**
 	 * ¸üĞÂ
 	 * @param attendance
 	 * @return
