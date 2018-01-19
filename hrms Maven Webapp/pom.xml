@@ -183,12 +183,13 @@
        	<artifactId>commons-dbcp</artifactId>  
        	<version>1.4</version>  
    	</dependency>
-   	<!--oracle 驱动  -->
-    <dependency>
-	    <groupId>com.oracle</groupId>
-	    <artifactId>ojdbc6</artifactId>
-	    <version>11.2.0</version>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.10</version>
 	</dependency>
+
    
 
     <!--*************【spring】********************************************************************** -->

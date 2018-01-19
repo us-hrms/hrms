@@ -9,7 +9,7 @@ import com.hrms.service.CultivateStaffService;
 public class CultivateStaffServiceImpl implements CultivateStaffService {
     
 	private Dao dao;
-	@Override
+	
 	public List<CultivateStaff> getCultivateStaffs(CultivateStaff cultivateStaff) {
 		// TODO Auto-generated method stub
 		return dao.find(cultivateStaff);

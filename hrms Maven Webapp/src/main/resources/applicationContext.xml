@@ -6,9 +6,9 @@
 		xmlns:p="http://www.springframework.org/schema/p"
 		xmlns:context="http://www.springframework.org/schema/context"
 		xsi:schemaLocation="
-			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 			http://www.springframework.org/schema/context
     		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
     <!-- SessionFactory -->
@@ -45,71 +45,15 @@
     	<aop:pointcut expression="execution(* com.hrms.service.impl.*.*(..))" id="servicePointCut"/>
     	<aop:advisor advice-ref="tm" pointcut-ref="servicePointCut"/>
     </aop:config>
+    <!-- 开启注解 -->
+    <context:annotation-config />
+    <context:component-scan base-package="com.hrms" />
     <!-- Dao -->
     <bean name="dao" class="com.hrms.dao.impl.DaoImpl">
          <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <!-- Service -->
-    <!-- 员工表 -->
-    <bean name="staffServiceImpl" class="com.hrms.service.impl.StaffServiceImpl">
-        <property name="dao" ref="dao"/>
-    </bean>
-    <!-- 职位表 -->
-    <bean name="positionServiceimpl" class="com.hrms.service.impl.PositionServiceImpl">
-   		<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 部门表 -->
-    <bean name="departmentServiceImpl" class="com.hrms.service.impl.DepartmentServiceImpl">
-   		<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 假期表 -->
-    <bean name="holidayServiceImpl" class="com.hrms.service.impl.HolidayServiceImpl">
-     	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 职位调整表 -->
-    <bean name="positionAdjustmentServiceImpl" class="com.hrms.service.impl.PositionAdjustmentServiceImpl">
-        <property name="dao" ref="dao"/>
-    </bean>
-    <!-- 离职员工表 -->
-    <bean name="quitStaffServiceImpl" class="com.hrms.service.impl.QuitStaffServiceImpl">
-        <property name="dao" ref="dao"/>
-    </bean>
-    <!-- 人事档案表 -->
-    <bean name="personnelFilesServiceImpl" class="com.hrms.service.impl.PersonnelFilesServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 员工合同表 -->
-    <bean name="staffContractServiceImpl" class="com.hrms.service.impl.StaffContractServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 出勤表 -->
-    <bean name="attendanceServiceImpl" class="com.hrms.service.impl.AttendanceServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 培训平台表 -->
-    <bean name="cultivateServiceImpl" class="com.hrms.service.impl.CultivateServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 培训记录表 -->
-    <bean name="cultivateRecordServiceImpl" class="com.hrms.service.impl.CultivateRecordServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 员工培训记录表 -->
-    <bean name="cultivateStaffServiceImpl" class="com.hrms.service.impl.CultivateStaffServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 薪酬发放表 -->
-    <bean name="payWagesServiceImpl" class="com.hrms.service.impl.PayWagesServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 工资标准表 -->
-    <bean name="wagesStandardServiceImpl" class="com.hrms.service.impl.WagesStandardServiceImpl">
-    	<property name="dao" ref="dao"/>
-    </bean>
-    <!-- 奖惩记录表 -->
-    <bean name="punishmentRewardServiceImpl" class="com.hrms.service.impl.PunishmentRewardServiceImpl">
-        <property name="dao" ref="dao"/> 
-    </bean>
+    
     <!-- Action -->
+    
     
 </beans>
