@@ -35,5 +35,10 @@
                 <comment>获得证书的日期</comment>
             </column>
         </property>
+        <property name="photo" type="java.lang.String">
+            <column name="Photo" length="30">
+                <comment>照片路径</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

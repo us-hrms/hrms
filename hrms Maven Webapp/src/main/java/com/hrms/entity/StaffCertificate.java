@@ -16,6 +16,7 @@ public class StaffCertificate implements java.io.Serializable {
 	private Staff staff;
 	private String no;
 	private Date date;
+	private String photo;
 
 	// Constructors
 
@@ -89,5 +90,14 @@ public class StaffCertificate implements java.io.Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
 
 }

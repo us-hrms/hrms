@@ -28,6 +28,7 @@ public class Staff implements java.io.Serializable {
 	private String address;
 	private String phone;
 	private String email;
+	private String photo;
 	private Set positionAdjustments = new HashSet(0);
 	private Set payWageses = new HashSet(0);
 	private Set cultivateRecords = new HashSet(0);
@@ -231,6 +232,14 @@ public class Staff implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public Set getPositionAdjustments() {

@@ -85,6 +85,11 @@
                 <comment>邮箱</comment>
             </column>
         </property>
+        <property name="photo" type="java.lang.String">
+            <column name="Photo" length="30">
+                <comment>照片路径</comment>
+            </column>
+        </property>
         <set name="positionAdjustments" inverse="true">
             <key>
                 <column name="SId" not-null="true">
