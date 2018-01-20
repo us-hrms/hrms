@@ -15,7 +15,7 @@
     <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
     	<property name="url" value="jdbc:mysql://127.0.0.1:3306/hrms" />
     	<property name="username" value="root" />
-    	<property name="password" value="990607" />
+    	<property name="password" value="root" />
     	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
     </bean>
     <bean name="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">

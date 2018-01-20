@@ -2,26 +2,72 @@ package com.hrms.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.hrms.dao.Dao;
 import com.hrms.entity.Position;
 import com.hrms.service.PositionService;
 
+@Service
 public class PositionServiceImpl implements PositionService {
     
-	private Dao dao; 
+	@Autowired
+	private Dao dao;
+
+	@Override
+	public boolean savePosition(Position position) {
+		// TODO Auto-generated method stub
+		try {
+			dao.save(position);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updatePosition(Position position) {
+		// TODO Auto-generated method stub
+		try {
+			dao.update(position);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deletePosition(Position position) {
+		// TODO Auto-generated method stub
+		try {
+			dao.delete(position);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public List<Position> getPositions() {
+		// TODO Auto-generated method stub
+		return dao.find(new Position());
+	}
+
 	@Override
 	public List<Position> getPositions(Position position) {
 		// TODO Auto-generated method stub
-		List<Position> list = dao.find(position);
-		return list.size()>0 ? list : null;
+		return dao.find(position);
 	}
-	
-	public Dao getDao() {
-		return dao;
-	}
-	public void setDao(Dao dao) {
-		this.dao = dao;
-	}
+
+	@Override
+	public Position getPosition(Position id) {
+		// TODO Auto-generated method stub
+		return (Position) dao.get(Position.class, id);
+	} 
     
 	
 }

@@ -5,8 +5,40 @@ import java.util.List;
 import com.hrms.entity.QuitStaff;
 
 public interface QuitStaffService {
-       /**
-        * 查询所有离职人员
-        */
-	    List<QuitStaff> getQuitStaffs(QuitStaff quitStaff);
+      
+	/**
+	 * 保存离职人员
+	 * @param quitStaff
+	 * @return
+	 */
+	boolean saveQuitStaff(QuitStaff quitStaff);
+	/**
+	 * 更新离职人员
+	 * @param quitStaff
+	 * @return
+	 */
+	boolean updateQuitStaff(QuitStaff quitStaff);
+	/**
+	 * 删除离职人员
+	 * @param quitStaff
+	 * @return
+	 */
+	boolean deleteQuitStaff(QuitStaff quitStaff);
+	/**
+	 * 查询全部离职人员
+	 * @return
+	 */
+	List<QuitStaff> getQuitStaffs();
+	/**
+	 * 根据条件查询离职人员
+	 * @param quitStaff
+	 * @return
+	 */
+	List<QuitStaff> getQuitStaffs(QuitStaff quitStaff);
+	/**
+	 * 根据id查询单个离职人员
+	 * @param id
+	 * @return
+	 */
+	QuitStaff getQuitStaff(QuitStaff id);
 }

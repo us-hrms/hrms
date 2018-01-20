@@ -2,25 +2,71 @@ package com.hrms.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.hrms.dao.Dao;
 import com.hrms.entity.QuitStaff;
 import com.hrms.service.QuitStaffService;
 
+@Service
 public class QuitStaffServiceImpl implements QuitStaffService {
     
+	@Autowired
 	private Dao dao;
+
+	@Override
+	public boolean saveQuitStaff(QuitStaff quitStaff) {
+		// TODO Auto-generated method stub
+		try {
+			dao.save(quitStaff);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updateQuitStaff(QuitStaff quitStaff) {
+		// TODO Auto-generated method stub
+		try {
+			dao.update(quitStaff);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteQuitStaff(QuitStaff quitStaff) {
+		// TODO Auto-generated method stub
+		try {
+			dao.delete(quitStaff);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public List<QuitStaff> getQuitStaffs() {
+		// TODO Auto-generated method stub
+		return dao.find(new QuitStaff());
+	}
+
 	@Override
 	public List<QuitStaff> getQuitStaffs(QuitStaff quitStaff) {
 		// TODO Auto-generated method stub
-		List<QuitStaff> list = dao.find(quitStaff);
-		return list.size()>0 ? list : null;
+		return dao.find(quitStaff);
+	}
+
+	@Override
+	public QuitStaff getQuitStaff(QuitStaff id) {
+		// TODO Auto-generated method stub
+		return (QuitStaff) dao.get(QuitStaff.class, id);
 	}
 	
-	public Dao getDao() {
-		return dao;
-	}
-	public void setDao(Dao dao) {
-		this.dao = dao;
-	}
-    
 }

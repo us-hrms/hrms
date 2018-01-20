@@ -5,8 +5,39 @@ import java.util.List;
 import com.hrms.entity.WagesStandard;
 
 public interface WagesStandardService {
-       /**
-        * 薪酬查询以及按条件查询
-        */
-	    List<WagesStandard> getWagesStandards(WagesStandard wagesStandard);
+	/**
+	 * 保存薪酬
+	 * @param wagesStandard
+	 * @return
+	 */
+    boolean saveWagesStandard(WagesStandard wagesStandard);
+    /**
+     * 更新薪酬
+     * @param wagesStandard
+     * @return
+     */
+    boolean updateWagesStandard(WagesStandard wagesStandard);
+    /**‘
+     * 删除薪酬
+     * @param wagesStandard
+     * @return
+     */
+    boolean deleteWagesStandard(WagesStandard wagesStandard);
+    /**
+     * 查询全部薪酬
+     * @return
+     */
+    List<WagesStandard> getWagesStandards();
+    /**
+     * 根据条件薪酬
+     * @param wagesStandard
+     * @return
+     */
+    List<WagesStandard> getWagesStandards(WagesStandard wagesStandard);
+    /**
+     * 根据id查询单个薪酬
+     * @param id
+     * @return
+     */
+    WagesStandard getWagesStandard(WagesStandard id);
 }

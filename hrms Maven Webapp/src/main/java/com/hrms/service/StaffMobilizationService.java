@@ -1,5 +1,46 @@
 package com.hrms.service;
 
-public interface StaffMobilizationService {
+import java.util.List;
 
+import com.hrms.entity.StaffMobilization;
+
+public interface StaffMobilizationService {
+	/**
+	 * 保存
+	 * @param staffMobilization
+	 * @return
+	 */
+	boolean  saveStaffMobilization(StaffMobilization staffMobilization);
+	
+	/**
+	 * 更新
+	 * @param staffMobilization
+	 * @return
+	 */
+	boolean updateStaffMobilization(StaffMobilization staffMobilization);
+	
+	/**
+	 * 删除
+	 * @return
+	 */
+	boolean deleteStaffMobilization(StaffMobilization staffMobilization);
+
+	/**
+	 * 获得所有的对象
+	 * @return
+	 */
+	List<StaffMobilization> getStaffMobilizations();
+	
+	/**
+	 * 根据条件查
+	 * @return
+	 */
+	List<StaffMobilization> getStaffMobilizations(StaffMobilization staffMobilization);
+	
+	/**
+	 * 根据id获得单个对象
+	 * @param id
+	 * @return
+	 */
+	StaffMobilization getStaffMobilization(StaffMobilization id);
 }
