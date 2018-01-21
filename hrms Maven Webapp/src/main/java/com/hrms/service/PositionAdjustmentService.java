@@ -1,12 +1,29 @@
 package com.hrms.service;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.PositionAdjustment;
 
 public interface PositionAdjustmentService {
-       /**
-        * 查询所有职位聘任记录
-        */
-	   List<PositionAdjustment> getPositionAdjustments(PositionAdjustment positionAdjustment);
+	/**
+     * 根据ID查询
+     */
+	PositionAdjustment getPositionAdjustment(Serializable id);
+    /**
+     * 查询全部
+     */
+	List<PositionAdjustment> getPositionAdjustment();
+	/**
+	 * 根据条件查询
+	 */
+    List<PositionAdjustment> getPositionAdjustment(PositionAdjustment positionAdjustment);
+    /**
+    * 更新
+    */
+    boolean updatePositionAdjustment(PositionAdjustment positionAdjustment);
+    /**
+    * 删除
+    */
+    boolean deletePositionAdjustment(PositionAdjustment positionAdjustment);
 }

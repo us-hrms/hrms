@@ -1,12 +1,29 @@
 package com.hrms.service;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.PersonnelFiles;
 
 public interface PersonnelFilesService {
-       /**
-        * 查询所有人事档案
-        */
-	   List<PersonnelFiles> getPersonnelFiless(PersonnelFiles personnelFiles);
+	 /**
+     * 根据ID查询
+     */
+	PersonnelFiles getPersonnelFiles(Serializable id);
+    /**
+     * 查询全部
+     */
+	List<PersonnelFiles> getPersonnelFiles();
+	/**
+	 * 根据条件查询
+	 */
+    List<PersonnelFiles> getPersonnelFiless(PersonnelFiles personnelFiles);
+    /**
+    * 更新
+    */
+    boolean updatePersonnelFiles(PersonnelFiles personnelFiles);
+    /**
+    * 删除
+    */
+    boolean deletePersonnelFiles(PersonnelFiles personnelFiles);
 }
