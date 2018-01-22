@@ -1,4 +1,4 @@
-package com.hrms.util;
+package com.hrms.hdp.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -67,7 +67,8 @@ public class HdpUtil {
 	 */
 	public boolean delete(String path){
 		try {
-			return fs.delete(new Path(path),true);
+			
+			return fs.delete(new Path(path), true);
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,8 +148,8 @@ public class HdpUtil {
 	}
 	
 	/**
-	 * hdfs å†…éƒ¨å¤åˆ¶
-	 * å°†æ–‡ä»¶å¤åˆ¶åˆ°æ–‡ä»¶å¤¹
+	 * hdfs ÄÚ²¿¸´ÖÆ
+	 * ½«ÎÄ¼ş¸´ÖÆµ½ÎÄ¼ş¼Ğ
 	 * @param source
 	 * @param target
 	 * @return
@@ -170,8 +171,8 @@ public class HdpUtil {
 		return false;
 	}
 	/**
-	 * hdfs å†…éƒ¨å¤åˆ¶
-	 * å°†æ–‡ä»¶å¤¹å†…æ–‡ä»¶å¤åˆ¶åˆ°æ–°æ–‡ä»¶å¤¹
+	 * hdfs ÄÚ²¿¸´ÖÆ
+	 * ½«ÎÄ¼ş¼ĞÄÚÎÄ¼ş¸´ÖÆµ½ĞÂÎÄ¼ş¼Ğ
 	 * @param source
 	 * @param target
 	 * @return
@@ -241,3 +242,4 @@ public class HdpUtil {
 		}
 	}
 }
+

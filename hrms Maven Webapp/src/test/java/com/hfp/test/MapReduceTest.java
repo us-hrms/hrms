@@ -1,4 +1,4 @@
-package com.hrms.hadoop;
+package com.hfp.test;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
@@ -16,7 +16,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.junit.Test;
 
-import com.hrms.util.HdpUtil;
+import com.hrms.hdp.util.HdpUtil;
 
 public class MapReduceTest {
 	public static class MyMapper extends Mapper<LongWritable, Text, Text, IntWritable>{

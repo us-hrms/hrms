@@ -1,9 +1,9 @@
-package com.hrms.hadoop;
+package com.hfp.test;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.hrms.util.HdpUtil;
+import com.hrms.hdp.util.HdpUtil;
 public class HadoopTest {
 	private HdpUtil hu = new HdpUtil();
 
