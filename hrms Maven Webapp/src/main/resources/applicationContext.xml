@@ -11,13 +11,9 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 			http://www.springframework.org/schema/context
     		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    <!-- dataSource -->
+    <import resource="applicationContext-database.xml"/>
     <!-- SessionFactory -->
-    <bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    	<property name="url" value="jdbc:mysql://127.0.0.1:3306/hrms" />
-    	<property name="username" value="root" />
-    	<property name="password" value="root" />
-    	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    </bean>
     <bean name="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     	<property name="dataSource" ref="dataSource" />
     	<property name="mappingDirectoryLocations" value="classpath:com/hrms/entity/" />
