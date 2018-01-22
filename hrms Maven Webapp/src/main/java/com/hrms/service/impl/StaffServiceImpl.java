@@ -2,12 +2,17 @@ package com.hrms.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.hrms.dao.Dao;
 import com.hrms.entity.Staff;
 import com.hrms.service.StaffService;
 
+@Service
 public class StaffServiceImpl implements StaffService {
     
+	@Autowired
 	private Dao dao;
 	@Override
 	public boolean login(Staff staff) {
@@ -34,14 +39,4 @@ public class StaffServiceImpl implements StaffService {
 		List<Staff> list = dao.find(staff);
 		return list.size()>0?list:null;
 	}
-	
-	public Dao getDao() {
-		return dao;
-	}
-
-	public void setDao(Dao dao) {
-		this.dao = dao;
-	}
-	
-
 }
