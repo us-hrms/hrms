@@ -360,6 +360,34 @@
 	    <artifactId>hibernate-annotations</artifactId>
 	    <version>3.2.1.ga</version>
 	</dependency>
+	<!-- hadoop -->
+	<dependency>  
+        <groupId>org.apache.hadoop</groupId>  
+        <artifactId>hadoop-common</artifactId>  
+        <version>2.6.0</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.apache.hadoop</groupId>  
+        <artifactId>hadoop-hdfs</artifactId>  
+        <version>2.6.0</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.apache.hadoop</groupId>  
+        <artifactId>hadoop-client</artifactId>  
+        <version>2.6.0</version>  
+    </dependency>  
+	<!-- hbase -->
+	<dependency>
+	    <groupId>org.apache.hbase</groupId>
+	    <artifactId>hbase-client</artifactId>
+	    <version>1.0.2</version>
+	</dependency>
+	<!-- slf4j -->
+    <dependency>  
+         <groupId>org.slf4j</groupId>  
+         <artifactId>slf4j-log4j12</artifactId>  
+         <version>1.5.8</version>  
+	</dependency>
 	<dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate</artifactId>
