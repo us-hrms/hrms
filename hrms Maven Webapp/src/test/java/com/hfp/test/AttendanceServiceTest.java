@@ -12,7 +12,7 @@ import com.hrms.entity.Attendance;
 import com.hrms.service.AttendanceService;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-public class TestAttendanceService {
+public class AttendanceServiceTest {
 	
 	static AttendanceService as;
 	
