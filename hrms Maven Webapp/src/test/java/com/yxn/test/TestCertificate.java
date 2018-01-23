@@ -8,23 +8,23 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.hrms.entity.Cultivate;
-import com.hrms.service.CultivateService;
+import com.hrms.entity.Certificate;
+import com.hrms.service.CertificateService;
 
-public class TestCultivate {
-
-	static CultivateService cs;
+public class TestCertificate {
+	
+	static CertificateService cs;
 	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		cs = context.getBean(CultivateService.class);
+		cs = context.getBean(CertificateService.class);
 	}
 	
 	@Test
 	public void getCertificates(){
-		List<Cultivate> list = cs.getCultivates();
-		for (Cultivate cultivate : list) {
-			System.out.println(cultivate.getId());
+		List<Certificate> list = cs.getCertificates();
+		for (Certificate certificate : list) {
+			System.out.println(certificate.getId());
 		}
 		Assert.assertEquals(true, list.size()>0);
 	}
