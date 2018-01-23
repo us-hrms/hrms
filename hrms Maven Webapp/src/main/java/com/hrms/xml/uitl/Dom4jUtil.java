@@ -186,7 +186,10 @@ public class Dom4jUtil {
 				//获取与元素属性相对应的对象属性
 				Field entityPro = entityClass.getDeclaredField(attr.getName());
 				entityPro.setAccessible(true);//设置可访问性
-				entityPro.set(entity, attr.getText());//赋值
+				if(entityPro.getType().equals(boolean.class))
+					entityPro.set(entity, Boolean.valueOf(attr.getText()));//赋值
+				else
+					entityPro.set(entity, attr.getText());//赋值
 			}
 		} catch (NoSuchFieldException e) {
 			// TODO Auto-generated catch block
@@ -203,7 +206,7 @@ public class Dom4jUtil {
 		}
 		return false;
 	}
-
+/*
 	private boolean fullListGroup(Element element,ListGroup listGroup){
 		//获得类
 		Class lgClass = ListGroup.class;
@@ -260,5 +263,5 @@ public class Dom4jUtil {
 		}
 		return false;
 	}
-	
+	*/
 }

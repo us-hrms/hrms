@@ -5,4 +5,53 @@ public class Item {
 	private String name;
 	private String link;
 	private boolean selected;
+	
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getLink() {
+		return link;
+	}
+
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+
+	public boolean isSelected() {
+		return selected;
+	}
+
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", link=" + link
+				+ ", selected=" + selected + "]";
+	}
+	
+	
 }

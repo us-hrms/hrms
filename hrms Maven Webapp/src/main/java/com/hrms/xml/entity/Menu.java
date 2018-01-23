@@ -36,4 +36,45 @@ public class Menu {
 	}
 	
 	
+
+	public List<ListGroup> getListGroups() {
+		return listGroups;
+	}
+
+	public void setListGroups(List<ListGroup> listGroups) {
+		this.listGroups = listGroups;
+	}
+
+	@Override
+	public String toString() {
+		return "Menu [filePath=" + filePath + ", listGroups=" + listGroups.size()
+				+ "]";
+	}
+	
+	/**
+	 * 设置选中的菜单
+	 * @param id
+	 * @return
+	 */
+	public boolean setSelected(String id){
+		List<Item> items;
+		//循环对比
+		for (ListGroup listGroup : listGroups) {
+			items = listGroup.getItems();
+			boolean result,hasId = false;
+			for (Item item : items) {
+				result = false;
+				if(item.getId().equals(id)){
+					result = true;
+					hasId = true;
+				}
+				item.setSelected(result);
+			}
+			listGroup.setSelected(hasId);
+		}
+		return false;
+	}
+	
+	
+	
 }
