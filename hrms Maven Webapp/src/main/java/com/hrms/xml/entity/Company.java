@@ -32,9 +32,8 @@ public class Company {
 		return Dom4jUtil.readCompany();
 	}
 	
-	
 	public Company(String name, String responsible, String legalPerson,
-			String address, String postalCode, String phone, String email, String filepath) {
+			String address, String postalCode, String phone, String email) {
 		super();
 		this.name = name;
 		this.responsible = responsible;
@@ -45,6 +44,24 @@ public class Company {
 		this.email = email;
 		this.filepath = filepath;
 	}
+	
+	/**
+	 * 获得Company对象
+	 * @return
+	 */
+	public static Company getCompany(){
+		return Dom4jUtil.readCompany();
+	}
+	
+	/**
+	 * 根据Company对象更新xml配置信息
+	 * @param company
+	 * @return
+	 */
+	public static boolean updateCompany(Company company){
+		return Dom4jUtil.writeCompany(company);
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -104,5 +121,11 @@ public class Company {
 				+ ", email=" + email + ", filepath=" + filepath + "]";
 	}
 	
-	
+	/**
+	 * 克隆
+	 */
+	public Company clone(){
+		return new Company(this.name,this.responsible,this.legalPerson,
+				this.address,this.postalCode,this.phone,this.email);
+	}
 }

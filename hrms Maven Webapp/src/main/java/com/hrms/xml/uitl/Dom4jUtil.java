@@ -20,14 +20,23 @@ import com.hrms.xml.entity.Company;
 import com.hrms.xml.entity.Item;
 import com.hrms.xml.entity.ListGroup;
 import com.hrms.xml.entity.Menu;
+import com.hrms.xml.entity.Role;
+import com.hrms.xml.entity.RolePermissions;
 
 public class Dom4jUtil {
+	
+	private static Menu MENU;
+	private static Company COMPANY;
+	private static RolePermissions ROLEPERMISSIONS;
 	
 	/**
 	 * 读取xml文件信息到Company对象
 	 * @return
 	 */
 	public static Company readCompany(){
+		//如果缓冲的Company 不为空则返回缓冲的对象
+		if(COMPANY != null)
+			return COMPANY.clone();
 		Document doc;
 		Company company = new Company();
 		Class companyClass = company.getClass();
@@ -46,6 +55,7 @@ public class Dom4jUtil {
 				compro.setAccessible(true);//设置可访问性
 				compro.set(company, property.attributeValue("value"));//设置属性值
 			}
+			COMPANY = company.clone();
 		} catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,6 +81,7 @@ public class Dom4jUtil {
 	 * @return
 	 */
 	public static boolean writeCompany(Company company){
+		COMPANY = null;//删除缓存的Company对象
 		Document doc;
 		Class companyClass = company.getClass();
 		try {
@@ -124,6 +135,14 @@ public class Dom4jUtil {
 	}
 
 	public static Menu readMenu(){
+		//如果缓冲的menu有值 返回缓存的值
+		if(MENU != null)
+			try {
+				return (Menu)MENU.clone();
+			} catch (CloneNotSupportedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		Document doc;
 		Menu menu = new Menu();
 		/*获得类*/
@@ -155,6 +174,7 @@ public class Dom4jUtil {
 				}
 				menu.addToListGroups(lg);//添加到menu的listgroups集合
 			}
+			MENU = (Menu)menu.clone();//缓存
 		} catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -162,6 +182,9 @@ public class Dom4jUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -186,8 +209,11 @@ public class Dom4jUtil {
 				//获取与元素属性相对应的对象属性
 				Field entityPro = entityClass.getDeclaredField(attr.getName());
 				entityPro.setAccessible(true);//设置可访问性
-				if(entityPro.getType().equals(boolean.class))
+				Class type = entityPro.getType();
+				if(type.equals(Boolean.class) || type.equals(boolean.class))
 					entityPro.set(entity, Boolean.valueOf(attr.getText()));//赋值
+				else if(type.equals(Integer.class)||type.equals(int.class))
+					entityPro.set(entity, Integer.valueOf(attr.getText()));//赋值
 				else
 					entityPro.set(entity, attr.getText());//赋值
 			}
@@ -206,21 +232,50 @@ public class Dom4jUtil {
 		}
 		return false;
 	}
-/*
-	private boolean fullListGroup(Element element,ListGroup listGroup){
-		//获得类
-		Class lgClass = ListGroup.class;
-		//获得所有元素属性
-		List<Attribute> attrs = element.attributes();
-		try {
-			//遍历属性
-			for (Attribute attr : attrs) {
-				//获取与元素属性相对应的对象属性
-				Field lgpro = lgClass.getDeclaredField(attr.getName());
-				lgpro.setAccessible(true);//设置可访问性
-				lgpro.set(listGroup, attr.getText());//赋值
+
+	/**
+	 * 获得角色权限信息
+	 * @return
+	 */
+	public static RolePermissions readRolePermissions(){
+		if(ROLEPERMISSIONS != null)
+			try {
+				return (RolePermissions)ROLEPERMISSIONS.clone();
+			} catch (CloneNotSupportedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-		} catch (NoSuchFieldException e) {
+		Document doc;
+		RolePermissions rp = new RolePermissions();
+		Class companyClass = rp.getClass();
+		try {
+			//SAXReader 读取文件 返回Document对象  可能会有异常
+			doc = new SAXReader().read(rp.getFilePath());
+			//获得根元素 即 company元素
+			Element root = doc.getRootElement();
+			//获得子元素 迭代器
+			Iterator<Element> roleList = root.elementIterator();
+			Role role;
+			//循环取出子元素  即 role元素
+			while(roleList.hasNext()){
+				//获得元素
+				Element roleElement = roleList.next();
+				role = new Role();
+				//填入元素属性到对象相应的属性
+				full(roleElement,role);
+				//获得role元素的子元素集合
+				List<Element> disables = roleElement.elements();
+				//创建不可操作id的数组 大小为子元素集合的大小
+				String [] ids = new String[disables.size()];
+				//遍历子元素取出id
+				for (int i = 0; i < ids.length; i++) {
+					ids[i] = disables.get(i).attributeValue("id");
+				}
+				role.setDisabledIds(ids);
+				rp.addToRoles(role);
+			}
+			ROLEPERMISSIONS = (RolePermissions)rp.clone();//缓存RolePermissions对象
+		} catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SecurityException e) {
@@ -229,25 +284,42 @@ public class Dom4jUtil {
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return rp;
 	}
 	
-	private boolean fullItem(Element element,Item item){
-		Class itemClass = Item.class;
-		//获得所有元素属性
-		List<Attribute> attrs = element.attributes();
+	public static boolean writeRolePermissions(RolePermissions rp){
+		ROLEPERMISSIONS = null;//删除缓存的RolePermissions对象
+		Document doc;
+		Class rpClass = rp.getClass();
 		try {
-			//遍历属性
-			for (Attribute attr : attrs) {
-				//获取与元素属性相对应的对象属性
-				Field itempro = itemClass.getDeclaredField(attr.getName());
-				itempro.setAccessible(true);//设置可访问性
-				itempro.set(item, attr.getText());//赋值
+			//SAXReader 读取文件 返回Document对象  可能会有异常
+			doc = new SAXReader().read(rp.getFilePath());
+			//获得根元素 即 company元素
+			Element root = doc.getRootElement();
+			//获得子元素 迭代器
+			Iterator<Element> iterator = root.elementIterator();
+			//循环取出子元素  即 property元素
+			while(iterator.hasNext()){
+				Element property = iterator.next();
+				//获得Company相关属性
+				Field compro = rpClass.getDeclaredField(property.attributeValue("name"));
+				compro.setAccessible(true);//设置可访问性
+				property.attribute("value").setText(compro.get(rp).toString());//保存
 			}
+			//将文件写入
+			OutputFormat out = OutputFormat.createPrettyPrint();//获得输出流
+			out.setEncoding("UTF-8");
+			XMLWriter writer = new XMLWriter(new FileOutputStream(rp.getFilePath()), out);//写入器
+			writer.write(doc);
+			writer.close();
+			return true;
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (NoSuchFieldException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -260,8 +332,16 @@ public class Dom4jUtil {
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return false;
 	}
-	*/
 }
