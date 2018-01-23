@@ -8,19 +8,29 @@ import org.springframework.stereotype.Service;
 import com.hrms.dao.Dao;
 import com.hrms.entity.Staff;
 import com.hrms.service.StaffService;
+import com.hrms.util.MD5Util;
 
 @Service
 public class StaffServiceImpl implements StaffService {
     
 	@Autowired
 	private Dao dao;
+	
 	@Override
 	public boolean login(Staff staff) {
 		// TODO Auto-generated method stub
-		String hql = "from Staff where no =: no and password =: password";
-		List<Staff> list = dao.find(hql, staff);
-		if(list.size()>0){
+		try {
+			//MD5º”√‹
+			staff.setPassword(MD5Util.getMD5(staff.getPassword()));
+			List<Staff> finds = dao.find(staff);
+			//≈–∂œ «∑ÒŒ™ø’
+			if(finds.isEmpty())
+				return false;
+			else
+				staff = finds.get(0);
 			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return false;
 	}
@@ -38,5 +48,29 @@ public class StaffServiceImpl implements StaffService {
 		// TODO Auto-generated method stub
 		List<Staff> list = dao.find(staff);
 		return list.size()>0?list:null;
+	}
+
+	@Override
+	public boolean saveStaff(Staff staff) {
+		// TODO Auto-generated method stub
+		try {
+			staff.setId(Long.valueOf(dao.save(staff).toString()));
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updateStaff(Staff staff) {
+		// TODO Auto-generated method stub
+		try {
+			dao.update(staff);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 }

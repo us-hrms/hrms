@@ -56,7 +56,7 @@
             </column>
         </property>
         <property name="password" type="java.lang.String">
-            <column name="Password" length="30" not-null="true">
+            <column name="Password" length="50" not-null="true">
                 <comment>密码</comment>
             </column>
         </property>
@@ -86,7 +86,7 @@
             </column>
         </property>
         <property name="photo" type="java.lang.String">
-            <column name="Photo" length="30">
+            <column name="Photo" length="100">
                 <comment>照片路径</comment>
             </column>
         </property>

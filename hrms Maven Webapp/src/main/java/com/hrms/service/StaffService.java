@@ -16,6 +16,20 @@ public interface StaffService {
 	boolean login(Staff staff);
 	
 	/**
+	 * 保存
+	 * @param staff
+	 * @return
+	 */
+	boolean saveStaff(Staff staff);
+	
+	/**
+	 * 更新
+	 * @param staff
+	 * @return
+	 */
+	boolean updateStaff(Staff staff);
+	
+	/**
 	 * 获得所有员工
 	 * @return 员工集合
 	 */
@@ -28,4 +42,6 @@ public interface StaffService {
 	 * @return 员工集合
 	 */
 	List<Staff> getStaffs(Staff staff);
+	
+	
 }
