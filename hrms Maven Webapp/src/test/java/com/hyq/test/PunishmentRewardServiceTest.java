@@ -15,12 +15,12 @@ import com.hrms.service.PunishmentRewardService;
 public class PunishmentRewardServiceTest {
 
 	static PunishmentRewardService prs;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		prs = context.getBean(PunishmentRewardService.class);
 	}
-	@Test
+//	@Test
 	public void testGetPunishmentRewards() {
 		List<PunishmentReward> list = prs.getPunishmentRewards();
 		for (PunishmentReward punishmentReward : list) {

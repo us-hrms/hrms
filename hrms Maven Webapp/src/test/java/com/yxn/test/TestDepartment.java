@@ -14,13 +14,13 @@ import com.hrms.service.DepartmentService;
 public class TestDepartment {
 	
     static DepartmentService ds;
-    @BeforeClass
+//    @BeforeClass
 	 public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ds = context.getBean(DepartmentService.class);
 	}
 	
-	@Test
+//	@Test
 	public void getDepartments(){
 		List<Department> list = ds.getDepartments();
 		for (Department department : list) {

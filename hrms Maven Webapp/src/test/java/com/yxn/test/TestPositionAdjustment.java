@@ -14,12 +14,12 @@ import com.hrms.service.PositionAdjustmentService;
 public class TestPositionAdjustment {
        
 	static PositionAdjustmentService pas;
-	@BeforeClass
+//	@BeforeClass
   	public static void inital(){
   		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
   		pas = context.getBean(PositionAdjustmentService.class);
     }
-    @Test
+//    @Test
  	public void getDepartments(){
  		List<PositionAdjustment> list = pas.getPositionAdjustment();
  		for (PositionAdjustment positionAdjustment : list) {

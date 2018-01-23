@@ -16,13 +16,13 @@ public class TestCultivateRecord {
 
 	static CultivateRecordService crs;
 	
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		crs = context.getBean(CultivateRecordService.class);
 	}
 	
-	@Test
+//	@Test
 	public void getCultivateRecords(){
 		List<CultivateRecord> list = crs.getCultivateRecords();
 		for (CultivateRecord cultivateRecord : list) {

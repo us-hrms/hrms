@@ -15,12 +15,12 @@ import com.hrms.service.WagesStandardService;
 public class WagesStandardServiceTest {
 
 	static WagesStandardService wss;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		wss = context.getBean(WagesStandardService.class);
 	}
-	@Test
+//	@Test
 	public void testGetWagesStandards() {
 		List<WagesStandard> list = wss.getWagesStandards();
 		for (WagesStandard sagesStandard : list) {

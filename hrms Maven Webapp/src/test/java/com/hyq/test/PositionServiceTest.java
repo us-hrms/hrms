@@ -15,12 +15,12 @@ import com.hrms.service.PositionService;
 public class PositionServiceTest {
 
 	static PositionService ps;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ps = context.getBean(PositionService.class);
 	}
-	@Test
+//	@Test
 	public void testGetPositions() {
 		List<Position> list = ps.getPositions();
 		for (Position position : list) {

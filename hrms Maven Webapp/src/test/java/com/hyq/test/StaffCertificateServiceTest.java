@@ -15,12 +15,12 @@ import com.hrms.service.StaffCertificateService;
 public class StaffCertificateServiceTest {
 
 	static StaffCertificateService scs;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		scs = context.getBean(StaffCertificateService.class);
 	}
-	@Test
+//	@Test
 	public void testGetStaffCertificates() {
 		List<StaffCertificate> list = scs.getStaffCertificates();
 		for (StaffCertificate staffCertificate : list) {

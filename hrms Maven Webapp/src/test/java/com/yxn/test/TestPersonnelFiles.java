@@ -14,12 +14,12 @@ import com.hrms.service.PersonnelFilesService;
 public class TestPersonnelFiles {
 	
      static PersonnelFilesService pfs;
-     @BeforeClass
+//     @BeforeClass
    	 public static void inital(){
    		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
    		pfs = context.getBean(PersonnelFilesService.class);
        }
-      @Test
+//      @Test
   	public void getDepartments(){
   		List<PersonnelFiles> list = pfs.getPersonnelFiles();
   		for (PersonnelFiles personnelFiles : list) {

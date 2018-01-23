@@ -15,12 +15,12 @@ import com.hrms.service.StaffMobilizationService;
 public class StaffMobilizationServiceTest {
 
 	static StaffMobilizationService sms;
-	@BeforeClass
+//	/@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		sms = context.getBean(StaffMobilizationService.class);
 	}
-	@Test
+//	@Test
 	public void testGetStaffMobilizations() {
 		List<StaffMobilization> list = sms.getStaffMobilizations();
 		for (StaffMobilization staffMobilization : list) {

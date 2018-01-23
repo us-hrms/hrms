@@ -15,12 +15,12 @@ import com.hrms.service.QuitStaffService;
 public class QuitStaffServiceTest {
 
 	static QuitStaffService qss;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		qss = context.getBean(QuitStaffService.class);
 	}
-	@Test
+//	@Test
 	public void testGetQuitStaffs() {
 		List<QuitStaff> list = qss.getQuitStaffs();
 		for (QuitStaff quitStaff : list) {

@@ -16,13 +16,11 @@ public class AttendanceServiceTest {
 	
 	static AttendanceService as;
 	
-	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		as = context.getBean(AttendanceService.class);
 	}
 	
-	@Test
 	public void get(){
 		List<Attendance> list = as.getAttendances();
 		for (Attendance attendance : list) {

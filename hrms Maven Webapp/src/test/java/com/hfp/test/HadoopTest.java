@@ -38,7 +38,6 @@ public class HadoopTest {
 		Assert.assertEquals(hu.copyToLocal("hdfs://node1:9000/java/test.txt", "E:/Workspaces/MyEclipse 2015/hadoop/test"), true);
 	}
 
-	@Test
 	//配置环境变量  HADOOP_USER_NAME 为 Hadoop配置的用户  否则会出现权限不够的错误
 	public void create(){
 		Assert.assertEquals(hu.create("hdfs://node1:9000/java/testWord.txt", "word word hellow nihao ni hao ni hao hellow hellow"), true);

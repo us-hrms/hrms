@@ -14,12 +14,12 @@ import com.hrms.service.PayWagesService;
 public class TestPayWages {
     
 	static PayWagesService ps;
-	@BeforeClass
+//	@BeforeClass
  	 public static void inital(){
  		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
  		ps = context.getBean(PayWagesService.class);
      }
-    @Test
+//    @Test
 	public void getDepartments(){
 		List<PayWages> list = ps.getPayWagess();
 		for (PayWages payWages : list) {

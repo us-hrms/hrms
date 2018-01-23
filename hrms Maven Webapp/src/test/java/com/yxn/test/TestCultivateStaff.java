@@ -14,13 +14,13 @@ import com.hrms.service.CultivateStaffService;
 public class TestCultivateStaff {
 	
      static CultivateStaffService css;
-     @BeforeClass
+//     @BeforeClass
  	 public static void inital(){
  		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
  		css = context.getBean(CultivateStaffService.class);
  	}
  	
- 	@Test
+// 	@Test
  	public void getCultivateStaffs(){
  		List<CultivateStaff> list = css.getCultivateStaffs();
  		for (CultivateStaff cultivateStaff : list) {

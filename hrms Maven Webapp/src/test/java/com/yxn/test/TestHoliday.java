@@ -14,12 +14,12 @@ import com.hrms.service.HolidayService;
 public class TestHoliday {
 	
      static HolidayService hs;
-     @BeforeClass
+//     @BeforeClass
   	 public static void inital(){
   		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
   		hs = context.getBean(HolidayService.class);
       }
-     @Test
+//     @Test
  	public void getDepartments(){
  		List<Holiday> list = hs.getHolidays();
  		for (Holiday holiday : list) {

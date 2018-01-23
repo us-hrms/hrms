@@ -14,13 +14,13 @@ import com.hrms.service.CertificateService;
 public class TestCultivate {
 
 	static CertificateService cs;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		cs = context.getBean(CertificateService.class);
 	}
 	
-	@Test
+//	@Test
 	public void getCertificates(){
 		List<Certificate> list = cs.getCertificates();
 		for (Certificate certificate : list) {

@@ -18,13 +18,12 @@ static AttendanceService as;
 
 	static StaffService staffService;
 	
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		staffService = context.getBean(StaffService.class);
 	}
 	
-	@Test
 	public void toMd5(){
 		List<Staff> list = staffService.getStaffs();
 		boolean result =true;

@@ -5,6 +5,17 @@ import com.hrms.xml.uitl.Dom4jUtil;
 public class Company {
 	/*公司名称，负责人，法人代表，所属行业，公司地址，邮政编码，传真，
 	公司网址，公司邮箱，公司电话*/
+	/*
+	<company>
+	 	<property name="name" value="HYH" />
+	 	<property name="responsible" value="岳肖楠" />
+	 	<property name="legalPerson" value="韩永琪" />
+	 	<property name="address" value="广州市天河区" />
+	 	<property name="postalCode" value="512000" />
+	 	<property name="phone" value="020-66666666" />
+	 	<property name="email" value="hesmailbox@163.com" />
+	</company>
+	*/
 	
 	private String name;//公司名称
 	private String responsible;//负责人
@@ -13,14 +24,17 @@ public class Company {
 	private String postalCode;//邮政编码
 	private String phone;//电话
 	private String email;//邮箱
+	private String filepath = "src\\main\\resources\\com\\hrms\\xml\\entity\\company.xml";//company文件路径
 	
 	public Company() {}
 	
 	public static Company readCompany() {
 		return Dom4jUtil.readCompany();
 	}
+	
+	
 	public Company(String name, String responsible, String legalPerson,
-			String address, String postalCode, String phone, String email) {
+			String address, String postalCode, String phone, String email, String filepath) {
 		super();
 		this.name = name;
 		this.responsible = responsible;
@@ -29,6 +43,7 @@ public class Company {
 		this.postalCode = postalCode;
 		this.phone = phone;
 		this.email = email;
+		this.filepath = filepath;
 	}
 	public String getName() {
 		return name;
@@ -72,12 +87,21 @@ public class Company {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getFilepath() {
+		return filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+
 	@Override
 	public String toString() {
 		return "Company [name=" + name + ", responsible=" + responsible
 				+ ", legalPerson=" + legalPerson + ", address=" + address
 				+ ", postalCode=" + postalCode + ", phone=" + phone
-				+ ", email=" + email + "]";
+				+ ", email=" + email + ", filepath=" + filepath + "]";
 	}
 	
 	
