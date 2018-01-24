@@ -11,19 +11,19 @@ public interface PositionService {
 	 * @param position
 	 * @return
 	 */
-	boolean savePosition(Position position);
+	Boolean savePosition(Position position);
 	/**
 	 * 更新职位
 	 * @param position
 	 * @return
 	 */
-	boolean updatePosition(Position position);
+	Boolean updatePosition(Position position);
 	/**
 	 * 删除职位
 	 * @param position
 	 * @return
 	 */
-	boolean deletePosition(Position position);
+	Boolean deletePosition(Position position);
 	/**
 	 * 查询全部所有职位
 	 * @return

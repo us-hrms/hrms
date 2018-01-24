@@ -17,22 +17,19 @@ public class StaffServiceImpl implements StaffService {
 	private Dao dao;
 	
 	@Override
-	public boolean login(Staff staff) {
+	public Staff login(Staff staff) {
 		// TODO Auto-generated method stub
 		try {
 			//MD5º”√‹
 			staff.setPassword(MD5Util.getMD5(staff.getPassword()));
 			List<Staff> finds = dao.find(staff);
 			//≈–∂œ «∑ÒŒ™ø’
-			if(finds.isEmpty())
-				return false;
-			else
-				staff = finds.get(0);
-			return true;
+			if(!finds.isEmpty())
+				return finds.get(0);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return false;
+		return null;
 	}
 
 	@Override
@@ -51,7 +48,7 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	@Override
-	public boolean saveStaff(Staff staff) {
+	public Boolean saveStaff(Staff staff) {
 		// TODO Auto-generated method stub
 		try {
 			staff.setId(Long.valueOf(dao.save(staff).toString()));
@@ -63,7 +60,7 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	@Override
-	public boolean updateStaff(Staff staff) {
+	public Boolean updateStaff(Staff staff) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(staff);

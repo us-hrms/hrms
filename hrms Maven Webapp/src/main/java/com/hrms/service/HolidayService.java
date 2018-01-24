@@ -21,10 +21,10 @@ public interface HolidayService {
 	    /**
 	     * ¸üĞÂ
 	     */
-	    boolean updateHoliday(Holiday holiday);
+	    Boolean updateHoliday(Holiday holiday);
 	    /**
 	     * É¾³ı
 	     */
-	    boolean deleteHoliday(Holiday holiday);
+	    Boolean deleteHoliday(Holiday holiday);
 
 }

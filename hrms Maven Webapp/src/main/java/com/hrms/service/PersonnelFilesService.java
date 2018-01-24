@@ -21,9 +21,9 @@ public interface PersonnelFilesService {
     /**
     * ¸üÐÂ
     */
-    boolean updatePersonnelFiles(PersonnelFiles personnelFiles);
+    Boolean updatePersonnelFiles(PersonnelFiles personnelFiles);
     /**
     * É¾³ý
     */
-    boolean deletePersonnelFiles(PersonnelFiles personnelFiles);
+    Boolean deletePersonnelFiles(PersonnelFiles personnelFiles);
 }

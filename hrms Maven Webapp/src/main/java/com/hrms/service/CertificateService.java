@@ -11,13 +11,13 @@ public interface CertificateService {
 	 * @param certificate
 	 * @return
 	 */
-	boolean updateCertificate(Certificate certificate);
+	Boolean updateCertificate(Certificate certificate);
 	
 	/**
 	 * 删除
 	 * @param certificate
 	 */
-	boolean deleteCertificate(Certificate certificate);
+	Boolean deleteCertificate(Certificate certificate);
 	
 	/**
 	 * 根据id获得一个Certificate对象

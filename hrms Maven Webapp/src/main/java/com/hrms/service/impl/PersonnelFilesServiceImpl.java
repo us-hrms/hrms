@@ -35,7 +35,7 @@ public class PersonnelFilesServiceImpl implements PersonnelFilesService {
 	}
 
 	@Override
-	public boolean updatePersonnelFiles(PersonnelFiles personnelFiles) {
+	public Boolean updatePersonnelFiles(PersonnelFiles personnelFiles) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(personnelFiles);
@@ -48,7 +48,7 @@ public class PersonnelFilesServiceImpl implements PersonnelFilesService {
 	}
 
 	@Override
-	public boolean deletePersonnelFiles(PersonnelFiles personnelFiles) {
+	public Boolean deletePersonnelFiles(PersonnelFiles personnelFiles) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(personnelFiles);

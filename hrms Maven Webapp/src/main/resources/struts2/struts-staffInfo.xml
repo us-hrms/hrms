@@ -5,7 +5,7 @@
 
 <struts>
 	<!-- 员工信息管理的action 配置 -->
-    <package name="default" extends="struts-default">
+    <package name="staffInfo" extends="struts-default" namespace="staff">
     	
     </package>
 </struts>

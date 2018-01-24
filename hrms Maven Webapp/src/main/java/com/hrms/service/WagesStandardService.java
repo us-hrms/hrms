@@ -10,19 +10,19 @@ public interface WagesStandardService {
 	 * @param wagesStandard
 	 * @return
 	 */
-    boolean saveWagesStandard(WagesStandard wagesStandard);
+    Boolean saveWagesStandard(WagesStandard wagesStandard);
     /**
      * ¸üĞÂĞ½³ê
      * @param wagesStandard
      * @return
      */
-    boolean updateWagesStandard(WagesStandard wagesStandard);
+    Boolean updateWagesStandard(WagesStandard wagesStandard);
     /**¡®
      * É¾³ıĞ½³ê
      * @param wagesStandard
      * @return
      */
-    boolean deleteWagesStandard(WagesStandard wagesStandard);
+    Boolean deleteWagesStandard(WagesStandard wagesStandard);
     /**
      * ²éÑ¯È«²¿Ğ½³ê
      * @return

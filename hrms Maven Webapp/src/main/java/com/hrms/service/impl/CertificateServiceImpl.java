@@ -16,7 +16,7 @@ public class CertificateServiceImpl implements CertificateService {
 	@Autowired
 	private Dao dao;
 	@Override
-	public boolean updateCertificate(Certificate certificate) {
+	public Boolean updateCertificate(Certificate certificate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(certificate);
@@ -29,7 +29,7 @@ public class CertificateServiceImpl implements CertificateService {
 	}
 
 	@Override
-	public boolean deleteCertificate(Certificate certificate) {
+	public Boolean deleteCertificate(Certificate certificate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(certificate);

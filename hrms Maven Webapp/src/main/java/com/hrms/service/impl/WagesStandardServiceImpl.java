@@ -16,7 +16,7 @@ public class WagesStandardServiceImpl implements WagesStandardService {
 	private Dao dao;
 
 	@Override
-	public boolean saveWagesStandard(WagesStandard wagesStandard) {
+	public Boolean saveWagesStandard(WagesStandard wagesStandard) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(wagesStandard);
@@ -28,7 +28,7 @@ public class WagesStandardServiceImpl implements WagesStandardService {
 	}
 
 	@Override
-	public boolean updateWagesStandard(WagesStandard wagesStandard) {
+	public Boolean updateWagesStandard(WagesStandard wagesStandard) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(wagesStandard);
@@ -40,7 +40,7 @@ public class WagesStandardServiceImpl implements WagesStandardService {
 	}
 
 	@Override
-	public boolean deleteWagesStandard(WagesStandard wagesStandard) {
+	public Boolean deleteWagesStandard(WagesStandard wagesStandard) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(wagesStandard);

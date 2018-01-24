@@ -10,20 +10,20 @@ public interface StaffMobilizationService {
 	 * @param staffMobilization
 	 * @return
 	 */
-	boolean  saveStaffMobilization(StaffMobilization staffMobilization);
+	Boolean  saveStaffMobilization(StaffMobilization staffMobilization);
 	
 	/**
 	 * 更新
 	 * @param staffMobilization
 	 * @return
 	 */
-	boolean updateStaffMobilization(StaffMobilization staffMobilization);
+	Boolean updateStaffMobilization(StaffMobilization staffMobilization);
 	
 	/**
 	 * 删除
 	 * @return
 	 */
-	boolean deleteStaffMobilization(StaffMobilization staffMobilization);
+	Boolean deleteStaffMobilization(StaffMobilization staffMobilization);
 
 	/**
 	 * 获得所有的对象

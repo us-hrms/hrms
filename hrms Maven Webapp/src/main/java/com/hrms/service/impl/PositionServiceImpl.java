@@ -16,7 +16,7 @@ public class PositionServiceImpl implements PositionService {
 	private Dao dao;
 
 	@Override
-	public boolean savePosition(Position position) {
+	public Boolean savePosition(Position position) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(position);
@@ -28,7 +28,7 @@ public class PositionServiceImpl implements PositionService {
 	}
 
 	@Override
-	public boolean updatePosition(Position position) {
+	public Boolean updatePosition(Position position) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(position);
@@ -40,7 +40,7 @@ public class PositionServiceImpl implements PositionService {
 	}
 
 	@Override
-	public boolean deletePosition(Position position) {
+	public Boolean deletePosition(Position position) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(position);

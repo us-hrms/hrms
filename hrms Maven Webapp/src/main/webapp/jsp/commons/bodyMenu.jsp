@@ -5,8 +5,7 @@
    <!-- 左侧菜单栏 -->
    <div class="well" >
        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-         
-         <c:forEach items="${menu9.listGroups}" var="lg">
+         <c:forEach items="${currMenu.listGroups}" var="lg">
          	<div class="panel panel-default">
 	           <div class="panel-heading" role="tab" id="heading${lg.id}">
 	             <h4 class="panel-title">

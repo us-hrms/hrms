@@ -11,19 +11,19 @@ public interface PunishmentRewardService {
 	 * @param punishmentReward
 	 * @return
 	 */
-	boolean savePunishmentReward(PunishmentReward punishmentReward);
+	Boolean savePunishmentReward(PunishmentReward punishmentReward);
 	/**
 	 * 更新奖罚记录
 	 * @param punishmentReward
 	 * @return
 	 */
-	boolean updatePunishmentReward(PunishmentReward punishmentReward);
+	Boolean updatePunishmentReward(PunishmentReward punishmentReward);
 	/**
 	 * 删除奖罚记录
 	 * @param punishmentReward
 	 * @return
 	 */
-	boolean deletePunishmentReward(PunishmentReward punishmentReward);
+	Boolean deletePunishmentReward(PunishmentReward punishmentReward);
 	/**
 	 * 查询全部奖罚记录
 	 * @return

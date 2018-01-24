@@ -21,9 +21,9 @@ public interface PayWagesService {
 	   /**
 	    * ¸üÐÂ
 	    */
-	   boolean updatePayWages(PayWages payWages);
+	   Boolean updatePayWages(PayWages payWages);
 	   /**
 	    * É¾³ý
 	    */
-	   boolean deletepayWages(PayWages payWages);
+	   Boolean deletepayWages(PayWages payWages);
 }

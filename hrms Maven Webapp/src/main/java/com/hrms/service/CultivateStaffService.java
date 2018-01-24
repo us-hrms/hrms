@@ -9,11 +9,11 @@ public interface CultivateStaffService {
 	    /**
 	     * 更新
 	     */
-		boolean updateCultivateStaff(CultivateStaff cultivateStaff);
+		Boolean updateCultivateStaff(CultivateStaff cultivateStaff);
 	   /**
 	    * 删除
 	    */
-		boolean deleteCultivateStaff(CultivateStaff cultivateStaff);
+		Boolean deleteCultivateStaff(CultivateStaff cultivateStaff);
 	   /**
 	    * 根据ID查询
 	    */

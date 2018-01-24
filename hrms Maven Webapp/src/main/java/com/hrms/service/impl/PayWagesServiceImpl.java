@@ -35,7 +35,7 @@ public class PayWagesServiceImpl implements PayWagesService {
 	}
 
 	@Override
-	public boolean updatePayWages(PayWages payWages) {
+	public Boolean updatePayWages(PayWages payWages) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(payWages);
@@ -48,7 +48,7 @@ public class PayWagesServiceImpl implements PayWagesService {
 	}
 
 	@Override
-	public boolean deletepayWages(PayWages payWages) {
+	public Boolean deletepayWages(PayWages payWages) {
 		// TODO Auto-generated method stub
 		try {
 			dao.find(payWages);

@@ -5,7 +5,7 @@
 
 <struts>
 	<!-- 系统管理的action配置区域 -->
-    <package name="default" extends="struts-default">
+    <package name="system" extends="struts-default" namespace="/sys">
     	
     </package>
 </struts>

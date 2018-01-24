@@ -11,19 +11,19 @@ public interface StaffCertificateService {
 	 * @param staffCertificate
 	 * @return
 	 */
-	boolean saveStaffCertificate(StaffCertificate staffCertificate);
+	Boolean saveStaffCertificate(StaffCertificate staffCertificate);
 	/**
 	 * 更新
 	 * @param staffCertificate
 	 * @return
 	 */
-	boolean updateStaffCertificate(StaffCertificate staffCertificate);
+	Boolean updateStaffCertificate(StaffCertificate staffCertificate);
 	/**
 	 * 删除
 	 * @param staffCertificate
 	 * @return
 	 */
-	boolean deleteStaffCertificate(StaffCertificate staffCertificate);
+	Boolean deleteStaffCertificate(StaffCertificate staffCertificate);
 	/**
 	 * 获得所有的对象
 	 * @return

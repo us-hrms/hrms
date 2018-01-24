@@ -36,7 +36,7 @@ public class PositionAdjustmentServiceImpl implements PositionAdjustmentService 
 	}
 
 	@Override
-	public boolean updatePositionAdjustment(
+	public Boolean updatePositionAdjustment(
 			PositionAdjustment positionAdjustment) {
 		// TODO Auto-generated method stub
 		try {
@@ -50,7 +50,7 @@ public class PositionAdjustmentServiceImpl implements PositionAdjustmentService 
 	}
 
 	@Override
-	public boolean deletePositionAdjustment(
+	public Boolean deletePositionAdjustment(
 			PositionAdjustment positionAdjustment) {
 		// TODO Auto-generated method stub
 		try {

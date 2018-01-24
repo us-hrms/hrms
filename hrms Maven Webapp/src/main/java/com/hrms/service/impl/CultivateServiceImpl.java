@@ -18,7 +18,7 @@ public class CultivateServiceImpl implements  CultivateService{
 	private Dao dao;
 
 	@Override
-	public boolean updateCultivate(Cultivate cultivate) {
+	public Boolean updateCultivate(Cultivate cultivate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(cultivate);
@@ -31,7 +31,7 @@ public class CultivateServiceImpl implements  CultivateService{
 	}
 
 	@Override
-	public boolean deleteCultivate(Cultivate cultivate) {
+	public Boolean deleteCultivate(Cultivate cultivate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(cultivate);

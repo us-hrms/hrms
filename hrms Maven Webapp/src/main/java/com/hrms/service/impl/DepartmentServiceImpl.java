@@ -35,7 +35,7 @@ public class DepartmentServiceImpl implements  DepartmentService{
 	}
 
 	@Override
-	public boolean updateDepartment(Department department) {
+	public Boolean updateDepartment(Department department) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(department);
@@ -48,7 +48,7 @@ public class DepartmentServiceImpl implements  DepartmentService{
 	}
 
 	@Override
-	public boolean deleteDepartment(Department department) {
+	public Boolean deleteDepartment(Department department) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(department);

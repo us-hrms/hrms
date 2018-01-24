@@ -14,7 +14,7 @@ public class StaffContractServiceImpl implements StaffContractService {
 	@Autowired
 	private Dao dao;
 	@Override
-	public boolean saveStaffContract(StaffContract staffContract) {
+	public Boolean saveStaffContract(StaffContract staffContract) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(staffContract);
@@ -26,7 +26,7 @@ public class StaffContractServiceImpl implements StaffContractService {
 	}
 
 	@Override
-	public boolean updateStaffContract(StaffContract staffContract) {
+	public Boolean updateStaffContract(StaffContract staffContract) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(staffContract);
@@ -38,7 +38,7 @@ public class StaffContractServiceImpl implements StaffContractService {
 	}
 
 	@Override
-	public boolean deleteStaffContract(StaffContract staffContract) {
+	public Boolean deleteStaffContract(StaffContract staffContract) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(staffContract);

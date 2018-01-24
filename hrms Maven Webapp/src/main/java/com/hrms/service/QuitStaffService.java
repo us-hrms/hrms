@@ -11,19 +11,19 @@ public interface QuitStaffService {
 	 * @param quitStaff
 	 * @return
 	 */
-	boolean saveQuitStaff(QuitStaff quitStaff);
+	Boolean saveQuitStaff(QuitStaff quitStaff);
 	/**
 	 * 更新离职人员
 	 * @param quitStaff
 	 * @return
 	 */
-	boolean updateQuitStaff(QuitStaff quitStaff);
+	Boolean updateQuitStaff(QuitStaff quitStaff);
 	/**
 	 * 删除离职人员
 	 * @param quitStaff
 	 * @return
 	 */
-	boolean deleteQuitStaff(QuitStaff quitStaff);
+	Boolean deleteQuitStaff(QuitStaff quitStaff);
 	/**
 	 * 查询全部离职人员
 	 * @return

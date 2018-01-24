@@ -22,9 +22,9 @@ public interface DepartmentService {
        /**
         * ¸üĞÂ
         */
-       boolean updateDepartment(Department department);
+       Boolean updateDepartment(Department department);
        /**
         * É¾³ı
         */
-       boolean deleteDepartment(Department department);
+       Boolean deleteDepartment(Department department);
 }

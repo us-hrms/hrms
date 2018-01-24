@@ -17,7 +17,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	private Dao dao;
 
 	@Override
-	public boolean updateAttendance(Attendance attendance) {
+	public Boolean updateAttendance(Attendance attendance) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(attendance);
@@ -30,7 +30,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public boolean deleteAttendance(Attendance attendance) {
+	public Boolean deleteAttendance(Attendance attendance) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(attendance);
@@ -69,7 +69,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public boolean saveAttendance(Attendance attendance) {
+	public Boolean saveAttendance(Attendance attendance) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(attendance);

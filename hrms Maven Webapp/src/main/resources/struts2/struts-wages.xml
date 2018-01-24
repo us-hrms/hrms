@@ -5,7 +5,7 @@
 
 <struts>
 	<!-- 薪酬管理的action配置 -->
-    <package name="default" extends="struts-default">
+    <package name="wages" extends="struts-default" namespace="/wages">
     	
     </package>
 </struts>

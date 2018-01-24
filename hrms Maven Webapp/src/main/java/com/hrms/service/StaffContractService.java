@@ -10,19 +10,19 @@ public interface StaffContractService {
 	    * @param staffContract
 	    * @return
 	    */
-	   boolean saveStaffContract(StaffContract staffContract);
+	   Boolean saveStaffContract(StaffContract staffContract);
 	   /**
 	    * 更新员工合同
 	    * @param staffContract
 	    * @return
 	    */
-	   boolean updateStaffContract(StaffContract staffContract);
+	   Boolean updateStaffContract(StaffContract staffContract);
 	   /**
 	    * 删除员工合同
 	    * @param staffContract
 	    * @return
 	    */
-	   boolean deleteStaffContract(StaffContract staffContract);
+	   Boolean deleteStaffContract(StaffContract staffContract);
 	   /**
 	    * 查询所有员工合同
 	    * @return

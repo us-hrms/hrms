@@ -35,7 +35,7 @@ public class HolidayServiceImpl implements HolidayService {
 	}
 
 	@Override
-	public boolean updateHoliday(Holiday holiday) {
+	public Boolean updateHoliday(Holiday holiday) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(holiday);
@@ -48,7 +48,7 @@ public class HolidayServiceImpl implements HolidayService {
 	}
 
 	@Override
-	public boolean deleteHoliday(Holiday holiday) {
+	public Boolean deleteHoliday(Holiday holiday) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(holiday);

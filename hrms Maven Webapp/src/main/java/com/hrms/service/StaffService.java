@@ -9,25 +9,26 @@ public interface StaffService {
 	/**
 	 * 员工登录
 	 * @param staff
-	 * @return boolean 
-	 * 		true 登录成功 并将员工信息填充到staff中
-	 * 		false 登录失败 
+	 * @return staff 
+	 * 		有数据的实例  登录成功 并将员工信息填充到staff中
+	 * 		无数据的实例 登录失败  
+	 * 		null 或出错
 	 */
-	boolean login(Staff staff);
+	Staff login(Staff staff);
 	
 	/**
 	 * 保存
 	 * @param staff
 	 * @return
 	 */
-	boolean saveStaff(Staff staff);
+	Boolean saveStaff(Staff staff);
 	
 	/**
 	 * 更新
 	 * @param staff
 	 * @return
 	 */
-	boolean updateStaff(Staff staff);
+	Boolean updateStaff(Staff staff);
 	
 	/**
 	 * 获得所有员工

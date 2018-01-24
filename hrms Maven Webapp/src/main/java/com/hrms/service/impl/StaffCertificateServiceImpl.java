@@ -15,7 +15,7 @@ public class StaffCertificateServiceImpl implements StaffCertificateService {
 	private Dao dao;
 
 	@Override
-	public boolean saveStaffCertificate(StaffCertificate staffCertificate) {
+	public Boolean saveStaffCertificate(StaffCertificate staffCertificate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(staffCertificate);
@@ -27,7 +27,7 @@ public class StaffCertificateServiceImpl implements StaffCertificateService {
 	}
 
 	@Override
-	public boolean updateStaffCertificate(StaffCertificate staffCertificate) {
+	public Boolean updateStaffCertificate(StaffCertificate staffCertificate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(staffCertificate);
@@ -39,7 +39,7 @@ public class StaffCertificateServiceImpl implements StaffCertificateService {
 	}
 
 	@Override
-	public boolean deleteStaffCertificate(StaffCertificate staffCertificate) {
+	public Boolean deleteStaffCertificate(StaffCertificate staffCertificate) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(staffCertificate);

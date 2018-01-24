@@ -21,9 +21,9 @@ public interface PositionAdjustmentService {
     /**
     * ¸üÐÂ
     */
-    boolean updatePositionAdjustment(PositionAdjustment positionAdjustment);
+    Boolean updatePositionAdjustment(PositionAdjustment positionAdjustment);
     /**
     * É¾³ý
     */
-    boolean deletePositionAdjustment(PositionAdjustment positionAdjustment);
+    Boolean deletePositionAdjustment(PositionAdjustment positionAdjustment);
 }

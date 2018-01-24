@@ -5,7 +5,7 @@
 
 <struts>
 	<!-- 人事管理的action配置 -->
-    <package name="default" extends="struts-default">
+    <package name="personnel" extends="struts-default" namespace="/pers">
     	
     </package>
 </struts>

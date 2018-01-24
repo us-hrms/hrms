@@ -16,7 +16,7 @@ public class QuitStaffServiceImpl implements QuitStaffService {
 	private Dao dao;
 
 	@Override
-	public boolean saveQuitStaff(QuitStaff quitStaff) {
+	public Boolean saveQuitStaff(QuitStaff quitStaff) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(quitStaff);
@@ -28,7 +28,7 @@ public class QuitStaffServiceImpl implements QuitStaffService {
 	}
 
 	@Override
-	public boolean updateQuitStaff(QuitStaff quitStaff) {
+	public Boolean updateQuitStaff(QuitStaff quitStaff) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(quitStaff);
@@ -40,7 +40,7 @@ public class QuitStaffServiceImpl implements QuitStaffService {
 	}
 
 	@Override
-	public boolean deleteQuitStaff(QuitStaff quitStaff) {
+	public Boolean deleteQuitStaff(QuitStaff quitStaff) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(quitStaff);

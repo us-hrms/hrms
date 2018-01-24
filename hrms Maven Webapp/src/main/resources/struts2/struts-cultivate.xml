@@ -5,7 +5,7 @@
 
 <struts>
 	<!-- 培训计划的action配置区域 -->
-    <package name="default" extends="struts-default">
+    <package name="cultivate" extends="struts-default" namespace="/cult">
     	
     </package>
 </struts>

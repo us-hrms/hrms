@@ -12,13 +12,13 @@ public interface CultivateRecordService {
 	 * @param cultivateRecord
 	 * @return
 	 */
-	boolean update(CultivateRecord cultivateRecord);
+	Boolean update(CultivateRecord cultivateRecord);
 	
 	/**
 	 * 删除
 	 * @param cultivateRecord
 	 */
-	boolean deleteCultivateRecord(CultivateRecord cultivateRecord);
+	Boolean deleteCultivateRecord(CultivateRecord cultivateRecord);
 	
 	/**
 	 * 根据id获得一个CultivateRecord

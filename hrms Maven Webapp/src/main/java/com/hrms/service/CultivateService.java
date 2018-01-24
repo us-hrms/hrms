@@ -7,9 +7,9 @@ import com.hrms.entity.Cultivate;
 
 public interface CultivateService {
 	
-	boolean updateCultivate(Cultivate cultivate);
+	Boolean updateCultivate(Cultivate cultivate);
 	
-	boolean deleteCultivate(Cultivate cultivate);
+	Boolean deleteCultivate(Cultivate cultivate);
 	
 	Cultivate getCultivate(Serializable id);
 

@@ -15,7 +15,7 @@ public class StaffMobilizationServiceImpl implements StaffMobilizationService {
 	@Autowired
 	private Dao dao;
 	@Override
-	public boolean saveStaffMobilization(StaffMobilization staffMobilization) {
+	public Boolean saveStaffMobilization(StaffMobilization staffMobilization) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(staffMobilization);
@@ -27,7 +27,7 @@ public class StaffMobilizationServiceImpl implements StaffMobilizationService {
 	}
 
 	@Override
-	public boolean updateStaffMobilization(StaffMobilization staffMobilization) {
+	public Boolean updateStaffMobilization(StaffMobilization staffMobilization) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(staffMobilization);
@@ -39,7 +39,7 @@ public class StaffMobilizationServiceImpl implements StaffMobilizationService {
 	}
 
 	@Override
-	public boolean deleteStaffMobilization(StaffMobilization staffMobilization) {
+	public Boolean deleteStaffMobilization(StaffMobilization staffMobilization) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(staffMobilization);

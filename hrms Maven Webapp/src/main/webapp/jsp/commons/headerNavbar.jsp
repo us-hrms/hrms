@@ -28,7 +28,7 @@
   </div>
   <!-- login model -->
   <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="logintitle" style="margin-top:200px;">
-    <form>
+    <form action="" >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -36,10 +36,10 @@
           <h4 class="modal-title text-center" id="logintitle">员工登录</h4>
         </div>
         <div class="modal-body container" style="max-width:90%;padding:10px;">
-          <div class="alert alert-success text-center">
-            请输入信息
+          <div class="alert alert-info text-center">
+            请填入工号和密码
           </div>
-          <div class="form-group has-error has-feedback">
+          <div class="form-group"> <!-- has-error has-feedback -->
             <label for="no" class="control-label" style="letter-spacing:20px;cursor:pointer;">工号</label>
             <div class="input-group">
               <div class="input-group-addon">
@@ -47,10 +47,10 @@
               </div>
               <input type="text" class="form-control" id="no" placeholder="No" aria-describedby="staffNo"required oninvalid="setCustomValidity('请填写工号！')" oninput="setCustomValidity('')">
             </div>
-            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-            <span id="staffNo" class="sr-only">(success)</span>
+            <!-- <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="staffNo" class="sr-only">(success)</span> -->
           </div>
-          <div class="form-group has-success has-feedback">
+          <div class="form-group "> <!-- has-success has-feedback -->
             <label for="password" class="control-label" style="letter-spacing:20px;cursor:pointer;">密码</label>
             <div class="input-group">
               <div class="input-group-addon">
@@ -58,8 +58,8 @@
               </div>
               <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="staffPassword" required oninvalid="setCustomValidity('请填写密码！')" oninput="setCustomValidity('')">
             </div>
-            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-            <span id="staffPassword" class="sr-only">(success)</span>
+           <!--  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="staffPassword" class="sr-only">(success)</span> -->
             </div>
         </div>
         <div class="modal-footer">

@@ -17,7 +17,7 @@ public class PunishmentRewardServiceImpl implements PunishmentRewardService {
 	private Dao dao;
 
 	@Override
-	public boolean savePunishmentReward(PunishmentReward punishmentReward) {
+	public Boolean savePunishmentReward(PunishmentReward punishmentReward) {
 		// TODO Auto-generated method stub
 		try {
 			dao.save(punishmentReward);
@@ -29,7 +29,7 @@ public class PunishmentRewardServiceImpl implements PunishmentRewardService {
 	}
 
 	@Override
-	public boolean updatePunishmentReward(PunishmentReward punishmentReward) {
+	public Boolean updatePunishmentReward(PunishmentReward punishmentReward) {
 		// TODO Auto-generated method stub
 		try {
 			dao.update(punishmentReward);
@@ -41,7 +41,7 @@ public class PunishmentRewardServiceImpl implements PunishmentRewardService {
 	}
 
 	@Override
-	public boolean deletePunishmentReward(PunishmentReward punishmentReward) {
+	public Boolean deletePunishmentReward(PunishmentReward punishmentReward) {
 		// TODO Auto-generated method stub
 		try {
 			dao.delete(punishmentReward);

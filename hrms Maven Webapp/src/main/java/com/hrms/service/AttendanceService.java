@@ -12,20 +12,20 @@ public interface AttendanceService {
 	 * @param attendance
 	 * @return
 	 */
-	boolean  saveAttendance(Attendance attendance);
+	Boolean  saveAttendance(Attendance attendance);
 	
 	/**
 	 * 更新
 	 * @param attendance
 	 * @return
 	 */
-	boolean updateAttendance(Attendance attendance);
+	Boolean updateAttendance(Attendance attendance);
 	
 	/**
 	 * 删除
 	 * @return
 	 */
-	boolean deleteAttendance(Attendance attendance);
+	Boolean deleteAttendance(Attendance attendance);
 
 	/**
 	 * 获得所有的对象
