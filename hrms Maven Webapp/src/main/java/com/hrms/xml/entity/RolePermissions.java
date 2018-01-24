@@ -7,7 +7,7 @@ import com.hrms.xml.uitl.Dom4jUtil;
 
 public class RolePermissions {
 	
-	private String filePath = "src\\main\\resources\\com\\hrms\\xml\\entity\\rolePermissions.xml";
+	private String filePath = this.getClass().getClassLoader().getResource("com\\hrms\\xml\\entity\\rolePermissions.xml").getPath();
 	private List<Role> roles = new ArrayList<Role>();
 	
 	

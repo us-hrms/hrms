@@ -104,14 +104,14 @@
               <input type="text" class="form-control" placeholder="搜索...">
               <div class="input-group-btn">
                 <button id="navbar-btn" type="submit" class="btn btn-default"  data-toggle="modal" data-target="#nav-search">
-                  <span  class=" glyphicon glyphicon-search" ></span>
+                  <span  class="glyphicon glyphicon-search" ></span>
                 </button>
               </div>
             </div>
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li ><a  href="login.jsp">登录</a></li>
+          <li><a href="login.jsp">登录</a></li>
           <li><a href="#">关于</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->

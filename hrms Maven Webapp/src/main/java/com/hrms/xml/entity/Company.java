@@ -24,7 +24,7 @@ public class Company {
 	private String postalCode;//邮政编码
 	private String phone;//电话
 	private String email;//邮箱
-	private String filepath = "src\\main\\resources\\com\\hrms\\xml\\entity\\company.xml";//company文件路径
+	private String filepath = this.getClass().getClassLoader().getResource("com\\hrms\\xml\\entity\\company.xml").getPath();//company文件路径
 	
 	public Company() {}
 	

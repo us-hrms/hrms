@@ -12,7 +12,7 @@ import com.hrms.xml.uitl.Dom4jUtil;
 @Component
 public class Menu {
 	
-	private String filePath = "src\\main\\resources\\com\\hrms\\xml\\entity\\menu.xml";//menu.xml文件路径
+	private String filePath = this.getClass().getClassLoader().getResource("com\\hrms\\xml\\entity\\menu.xml").getPath();//menu.xml文件路径
 	private List<ListGroup> listGroups;
 
 	public Menu() {

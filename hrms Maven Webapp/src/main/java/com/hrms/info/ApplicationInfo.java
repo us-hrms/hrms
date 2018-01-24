@@ -20,5 +20,22 @@ public class ApplicationInfo {
 		this.menuMap = Menu.getRoleMenuMap();
 		this.company = Company.getCompany();
 	}
+
+	public Map<Integer, Menu> getMenuMap() {
+		return menuMap;
+	}
+
+	public void setMenuMap(Map<Integer, Menu> menuMap) {
+		this.menuMap = menuMap;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	
 	
 }

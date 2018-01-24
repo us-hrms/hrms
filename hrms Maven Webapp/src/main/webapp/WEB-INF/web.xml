@@ -17,6 +17,14 @@
   <listener>
   	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
+  <!-- 配置 servletContext 监听器 -->
+  <listener>
+  	<listener-class>com.hrms.listener.HRMSServletContextListener</listener-class>
+  </listener>
+  <!-- 配置 httpSession 监听器 -->
+  <listener>
+  	<listener-class>com.hrms.listener.HRMSHttpSessionListener</listener-class>
+  </listener>
   <!-- 在低版本下配置Spring 请求感知 -->
   <!-- 
   <filter>

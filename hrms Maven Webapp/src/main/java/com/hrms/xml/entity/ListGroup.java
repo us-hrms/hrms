@@ -10,6 +10,7 @@ public class ListGroup {
 	private boolean selected;
 	private List<Item> items;
 	private boolean disabled = false;
+	private String icon;
 	
 	public ListGroup() {
 		items = new ArrayList<Item>();
@@ -18,6 +19,16 @@ public class ListGroup {
 		this.items = items;
 	}
 	
+	public ListGroup(String id, String name, boolean selected,
+			List<Item> items, boolean disabled, String icon) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.selected = selected;
+		this.items = items;
+		this.disabled = disabled;
+		this.icon = icon;
+	}
 	public boolean addToItems(Item item){
 		return items.add(item);
 	}
@@ -37,7 +48,13 @@ public class ListGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
 	public boolean isSelected() {
 		return selected;
 	}
@@ -75,7 +92,7 @@ public class ListGroup {
 		for (Item item : items) {
 			its.add((Item)item.clone());
 		}
-		return new ListGroup(its);
+		return new ListGroup(this.id,this.name,this.selected,its,this.disabled,this.icon);
 	}
 	
 	/*public ListGroup clone(){

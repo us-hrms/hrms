@@ -48,7 +48,17 @@
 	    <artifactId>aopalliance</artifactId>
 	    <version>1.0</version>
 	</dependency>
-	
+	<!-- jstl -->
+	<dependency>
+		<groupId>jstl</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+	<dependency>
+		<groupId>taglibs</groupId>
+		<artifactId>standard</artifactId>
+		<version>1.1.2</version>
+	</dependency>
 	<!-- AspectJ依赖 -->
     <dependency>
          <groupId>org.aspectj</groupId>
