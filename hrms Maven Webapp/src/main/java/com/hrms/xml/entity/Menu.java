@@ -1,5 +1,6 @@
 package com.hrms.xml.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.hrms.xml.uitl.Dom4jUtil;
 
 @Component
-public class Menu {
+public class Menu implements Serializable {
 	
 	private String filePath = this.getClass().getClassLoader().getResource("com\\hrms\\xml\\entity\\menu.xml").getPath();//menu.xmlÎÄ¼þÂ·¾¶
 	private List<ListGroup> listGroups;

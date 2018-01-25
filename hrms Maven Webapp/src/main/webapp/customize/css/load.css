@@ -15,7 +15,7 @@
   position: absolute;
   /* 100% - 200px */
   width: 100%;
-  color: blue;
+  color: #1E90FF;
   padding: 0 10px;
   text-align: center;
 }
@@ -24,7 +24,7 @@
   opacity: 0;
   width: 20px;
   display: inline-block;
-  background-color: blue;
+  background-color: #1E90FF;
   border-radius:10px;
 }
 .transition-loader-inner label:after {

@@ -1,8 +1,9 @@
 package com.hrms.xml.entity;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Role {
+public class Role implements Serializable {
 	private Integer id;//角色Id
 	private String[] disabledIds;//不可操作的选项id
 	

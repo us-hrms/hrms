@@ -1,19 +1,19 @@
 package com.hrms.action;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.hrms.entity.Staff;
 import com.hrms.scope.ServletScopeAware;
 import com.hrms.service.StaffService;
 import com.hrms.util.PrintWriteUtil;
 import com.hrms.xml.entity.Menu;
+import com.hrms.xml.entity.Nav;
+import com.hrms.xml.entity.Navbar;
 
 @Controller
 @Scope("prototype")
@@ -42,9 +42,15 @@ public class StaffAction extends ServletScopeAware {
 	   staff = staffService.login(staff);
 	   if(staff != null){
 		   session.setAttribute("currStaff", staff);
-		   Map<Integer, Menu> menu = (Map<Integer, Menu>)application.getAttribute("roleMenuMap");
 		   Long id = staff.getDataDictionaryByTypeId().getId();
+		   //从application拿出参数
+		   //拿出所有的角色菜单
+		   Map<Integer, Menu> menu = (Map<Integer, Menu>)application.getAttribute("roleMenuMap");
+		   Navbar navbar = (Navbar)application.getAttribute("navbar");
+		   //放入当前staff对应权限的的菜单栏
 		   session.setAttribute("currMenu", menu.get(id.intValue()));
+		   //放入当前staff对应的导航菜单栏
+		   session.setAttribute("currNavbar", navbar.getCommonAndCustomizeNavsClone(id));
 	   }
 	   PrintWriteUtil.write(response, staff!=null?"true":"false");
 	   return null;

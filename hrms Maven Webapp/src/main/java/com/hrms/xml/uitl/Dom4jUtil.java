@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +21,8 @@ import com.hrms.xml.entity.Company;
 import com.hrms.xml.entity.Item;
 import com.hrms.xml.entity.ListGroup;
 import com.hrms.xml.entity.Menu;
+import com.hrms.xml.entity.Nav;
+import com.hrms.xml.entity.Navbar;
 import com.hrms.xml.entity.Role;
 import com.hrms.xml.entity.RolePermissions;
 
@@ -28,6 +31,7 @@ public class Dom4jUtil {
 	private static Menu MENU;
 	private static Company COMPANY;
 	private static RolePermissions ROLEPERMISSIONS;
+	private static Navbar NAVBAR;
 	
 	/**
 	 * 读取xml文件信息到Company对象
@@ -214,6 +218,8 @@ public class Dom4jUtil {
 					entityPro.set(entity, Boolean.valueOf(attr.getText()));//赋值
 				else if(type.equals(Integer.class)||type.equals(int.class))
 					entityPro.set(entity, Integer.valueOf(attr.getText()));//赋值
+				else if(type.equals(Long.class)||type.equals(long.class))
+					entityPro.set(entity, Long.valueOf(attr.getText()));//赋值
 				else
 					entityPro.set(entity, attr.getText());//赋值
 			}
@@ -344,4 +350,78 @@ public class Dom4jUtil {
 		}
 		return false;
 	}
+	
+	
+	public static Navbar readNavbar(){
+		//如果缓冲的menu有值 返回缓存的值
+		if(NAVBAR != null)
+			try {
+				return (Navbar)NAVBAR.clone();
+			} catch (CloneNotSupportedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		Document doc;
+		Navbar navbar = new Navbar();
+		/*获得类*/
+		Class menuClass = Menu.class;
+		try {
+			//SAXReader 读取文件 返回Document对象  可能会有异常
+			doc = new SAXReader().read(navbar.getFilePath());
+			//获得根元素 即 navbars元素
+			Element root = doc.getRootElement();
+			//获得子元素 commone 或者  customizes 迭代器
+			Iterator<Element> items = root.elementIterator();
+			while (items.hasNext()) {
+				//获得子元素
+				Element element = items.next();
+				Nav nav = null;
+				//判断是哪个元素
+				if(element.getName().equals("commone")){
+					//获得nav的迭代器
+					Iterator<Element> navsElement = element.elementIterator();
+					//迭代nav元素集合
+					while (navsElement.hasNext()) {
+						Element navElement = navsElement.next();
+						nav =new Nav();
+						full(navElement,nav);
+						navbar.addToCommon(nav);
+					}
+				}else if(element.getName().equals("customizes")){
+					Iterator<Element> custsElement = element.elementIterator();
+					//迭代customize集合
+					while (custsElement.hasNext()) {
+						Element custElement = custsElement.next();
+						Iterator<Element> navsElement = custElement.elementIterator();
+						Long custId = Long.valueOf(custElement.attributeValue("id"));//获得customize的id
+						//放入customize 的map中
+						navbar.putToCustomize(custId, new ArrayList<Nav>());
+						//迭代nav集合
+						while (navsElement.hasNext()) {
+							Element navElement = navsElement.next();
+							nav =new Nav();
+							full(navElement,nav);
+							//放入map里相应的id的nav集合中
+							navbar.addToCustomizeNavs(custId, nav);
+						}
+					}
+				}
+			}
+			NAVBAR = (Navbar)navbar.clone();//缓存
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return navbar;
+	}
+	
 }

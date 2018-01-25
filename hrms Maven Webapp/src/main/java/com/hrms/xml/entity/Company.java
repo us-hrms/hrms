@@ -1,8 +1,10 @@
 package com.hrms.xml.entity;
 
+import java.io.Serializable;
+
 import com.hrms.xml.uitl.Dom4jUtil;
 
-public class Company {
+public class Company implements Serializable {
 	/*公司名称，负责人，法人代表，所属行业，公司地址，邮政编码，传真，
 	公司网址，公司邮箱，公司电话*/
 	/*

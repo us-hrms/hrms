@@ -1,11 +1,12 @@
 package com.hrms.xml.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.hrms.xml.uitl.Dom4jUtil;
 
-public class RolePermissions {
+public class RolePermissions implements Serializable {
 	
 	private String filePath = this.getClass().getClassLoader().getResource("com\\hrms\\xml\\entity\\rolePermissions.xml").getPath();
 	private List<Role> roles = new ArrayList<Role>();

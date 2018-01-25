@@ -7,7 +7,7 @@
 	<!-- 基本功能的action配置 -->
     <package name="basic" extends="struts-default" namespace="/basic">
     	<action class="staffAction" name="staff*" method="{1}" >
-    		<result name="{1}Success" >jsp/{toJsp}.jsp</result>
+    		<result name="{1}Success" >../jsp/${toJsp}.jsp</result>
     	</action>
     </package>
 </struts>

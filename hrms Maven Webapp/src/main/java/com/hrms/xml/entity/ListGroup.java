@@ -1,9 +1,10 @@
 package com.hrms.xml.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListGroup {
+public class ListGroup implements Serializable {
 
 	private String id;
 	private String name;

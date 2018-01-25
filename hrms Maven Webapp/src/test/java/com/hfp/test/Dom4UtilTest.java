@@ -9,6 +9,7 @@ import com.hrms.xml.entity.Company;
 import com.hrms.xml.entity.Item;
 import com.hrms.xml.entity.ListGroup;
 import com.hrms.xml.entity.Menu;
+import com.hrms.xml.entity.Navbar;
 import com.hrms.xml.entity.Role;
 import com.hrms.xml.entity.RolePermissions;
 import com.hrms.xml.uitl.Dom4jUtil;
@@ -51,12 +52,19 @@ public class Dom4UtilTest {
 			}
 		}
 	}
-	@Test
+	
+	
 	public void getRolePermissions(){
 		RolePermissions rp = Dom4jUtil.readRolePermissions();
 		for (Role role : rp.getRoles()) {
 			System.out.println(role);
 		}
+	}
+
+	@Test
+	public void getNavbar(){
+		Navbar navbar= Dom4jUtil.readNavbar();
+		System.out.println(navbar);
 	}
 	
 	

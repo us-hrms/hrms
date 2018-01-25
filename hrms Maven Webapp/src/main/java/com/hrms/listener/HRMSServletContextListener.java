@@ -33,6 +33,10 @@ public class HRMSServletContextListener implements ServletContextListener {
 		context.setAttribute("company", appInfo.getCompany());
 		//初始化角色菜单到context
 		context.setAttribute("roleMenuMap", appInfo.getMenuMap());
+		//初始化用户导航菜单到context
+		context.setAttribute("navbar", appInfo.getNavbar());
+		//初始化公共导航栏菜单到context
+		context.setAttribute("commonNavbar", appInfo.getNavbar().getCommon());
 	}
 
 }
