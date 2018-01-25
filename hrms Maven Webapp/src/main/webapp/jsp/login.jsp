@@ -24,6 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<link rel="stylesheet" href="${pageContext.request.contextPath }/bootstrap/css/bootstrap.css">
 	<!-- nvabar js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/customize/js/comm.js"></script>
+	<!-- login.js -->
+	<script type="text/javascript" src="${pageContext.request.contextPath }/customize/js/login.js"></script>
   	<!-- load transition -->
  	<link rel="stylesheet" href="${pageContext.request.contextPath }/customize/css/load.css">
  	<!-- menu  -->
@@ -34,34 +36,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<jsp:include page="commons/headerNavbar.jsp" />
     <div class="container well" style="max-width:30%;margin-top:80px;padding:50px;">
 	  <h2 class="text-center">员工登录</h2>
-	  <div class="alert alert-success text-center">
-	    请输入信息
+	  <div class="alert alert-info text-center login-alert">
+	    请填入工号和密码
 	  </div>
-	  <form>
+	  <form url="home.html">
 	    <div class="form-group">
-	      <label for="no" style="letter-spacing:20px;cursor:pointer;">工号</label>
+	      <label for="no" class="control-label" style="letter-spacing:20px;cursor:pointer;">工号</label>
 	      <div class="input-group">
 	        <div class="input-group-addon">
 	          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 	        </div>
-	        <input type="text" class="form-control" id="no" placeholder="No" required>
+	        <input type="text" class="form-control" name="staff.no" id="no" placeholder="No"  data-container="body" data-toggle="popover" data-placement="top" data-content="请填写工号">
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="password" style="letter-spacing:20px;cursor:pointer;">密码</label>
+	      <label for="password" class="control-label" style="letter-spacing:20px;cursor:pointer;">密码</label>
 	      <div class="input-group">
 	        <div class="input-group-addon">
 	          <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 	        </div>
-	        <input type="password" class="form-control" id="password" placeholder="Password">
+	        <input type="password" name="staff.password" class="form-control" id="password" placeholder="Password" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写密码" >
 	      </div>
 	    </div>
-	    <div class="checkbox">
+	    <!-- <div class="checkbox">
 	      <label>
 	        <input type="checkbox"> Check me out
 	      </label>
-	    </div>
-	    <button type="submit" class="btn btn-primary btn-block">登录</button>
+	    </div> -->
+	    <button type="submit" class="btn btn-primary btn-block staff-login-btn">登录</button>
 	  </form>
 	</div>
   </body>

@@ -36,7 +36,7 @@ public class MenuTest {
 		}
 	}
 	
-	@Test
+//	@Test
 	public void getRoleMenu(){
 		RolePermissions rp = Dom4jUtil.readRolePermissions();
 		Map<Integer, Menu> rmMap = Menu.getRoleMenuMap();

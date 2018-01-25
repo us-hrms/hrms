@@ -16,12 +16,12 @@ import com.opensymphony.xwork2.interceptor.annotations.Before;
 public class AttendanceServiceTest {
 	
 	static AttendanceService as;
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		as = context.getBean(AttendanceService.class);
 	}
-	@Test
+//	@Test
 	public void get(){
 		List<Attendance> list = as.getAttendances();
 		for (Attendance attendance : list) {

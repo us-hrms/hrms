@@ -19,42 +19,47 @@ import com.hrms.xml.entity.Navbar;
 @Scope("prototype")
 public class StaffAction extends ServletScopeAware {
 
-   @Autowired
-   private StaffService staffService;
-   private Staff staff;
-   private String toJsp;
-   private String toAction;
+    @Autowired
+    private StaffService staffService;
+    private Staff staff;
+    private String toJsp;
+    private String toAction;
+    
+    /**
+     * 去登录页面
+     * @return
+     */
+    public String toLogin(){
+    	List<Nav> currNav = (List<Nav>) session.getAttribute("currNavbar");
+    	if(currNav == null)
+    		currNav = (List<Nav>) application.getAttribute("commonNavbar");
+		Nav.select(0l, currNav);
+    	session.setAttribute("currNavbar", currNav);
+	    toJsp = "jsp/login";
+	    return "toLoginSuccess";
+    }
    
-   /**
-    * 去登录页面
-    * @return
-    */
-   public String toLogin(){
-	   toJsp = "login";
-	   return "toLoginSuccess";
-   }
-   
-   /**
-    * 登录
-    * @return
-    */
-   public String loginAjax(){
-	   staff = staffService.login(staff);
-	   if(staff != null){
-		   session.setAttribute("currStaff", staff);
-		   Long id = staff.getDataDictionaryByTypeId().getId();
-		   //从application拿出参数
-		   //拿出所有的角色菜单
-		   Map<Integer, Menu> menu = (Map<Integer, Menu>)application.getAttribute("roleMenuMap");
-		   Navbar navbar = (Navbar)application.getAttribute("navbar");
-		   //放入当前staff对应权限的的菜单栏
-		   session.setAttribute("currMenu", menu.get(id.intValue()));
-		   //放入当前staff对应的导航菜单栏
-		   session.setAttribute("currNavbar", navbar.getCommonAndCustomizeNavsClone(id));
-	   }
-	   PrintWriteUtil.write(response, staff!=null?"true":"false");
-	   return null;
-   }
+    /**
+     * 登录
+     * @return
+     */
+    public String loginAjax(){
+	    staff = staffService.login(staff);
+	    if(staff != null){
+		    session.setAttribute("currStaff", staff);
+		    Long id = staff.getDataDictionaryByTypeId().getId();
+		    //从application拿出参数
+		    //拿出所有的角色菜单
+		    Map<Integer, Menu> menu = (Map<Integer, Menu>)application.getAttribute("roleMenuMap");
+		    Navbar navbar = (Navbar)application.getAttribute("navbar");
+		    //放入当前staff对应权限的的菜单栏
+		    session.setAttribute("currMenu", menu.get(id.intValue()));
+		    //放入当前staff对应的导航菜单栏
+		    session.setAttribute("currNavbar", navbar.getCommonAndCustomizeNavsClone(id));
+	    }
+   	    PrintWriteUtil.write(response, staff!=null?"true":"false");
+	    return null;
+    }
 	
 	public StaffService getStaffService() {
 		return staffService;

@@ -5,9 +5,13 @@
 
 <struts>
 	<!-- 基本功能的action配置 -->
-    <package name="basic" extends="struts-default" namespace="/basic">
+    <package name="basic" extends="struts-default" namespace="/">
+    	<default-action-ref name="home" />
     	<action class="staffAction" name="staff*" method="{1}" >
-    		<result name="{1}Success" >../jsp/${toJsp}.jsp</result>
+    		<result name="{1}Success" >${toJsp}.jsp</result>
+    	</action>
+    	<action class="homeAction" name="home" method="toHome">
+    		<result>${toJsp}.jsp</result>
     	</action>
     </package>
 </struts>

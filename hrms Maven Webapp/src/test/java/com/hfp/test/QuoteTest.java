@@ -6,7 +6,7 @@ import com.hrms.entity.Staff;
 
 public class QuoteTest {
 
-	@Test
+//	@Test
 	public void quote(){
 		Staff s= new Staff();
 		s.setId(1l);

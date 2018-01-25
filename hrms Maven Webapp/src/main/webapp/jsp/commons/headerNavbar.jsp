@@ -28,10 +28,37 @@
       </div>
     </div>
   </div>
+  <% 
+  	String uri=request.getRequestURI();   
+  	uri=uri.substring(uri.lastIndexOf("/")+1,uri.lastIndexOf("."));     
+  	request.setAttribute("currPageName", uri);
+  %>
   <!-- login model -->
   <c:if test="${currStaff == null}">
 	  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="logintitle" style="margin-top:200px;">
-	    <form action="/basic/staffloginAjax.do" method="post" >
+	  <c:choose>
+	  	<c:when test="${currPageName == 'login'}">
+	  		<div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title text-center" id="logintitle">员工登录</h4>
+	        </div>
+	        <div class="modal-body container" style="max-width:90%;padding:10px;">
+	          <div class="alert alert-danger text-center h3">
+	           		 请 先 登 陆
+	          </div>
+	        </div>
+	        <div class="modal-footer">
+	            <button class="btn btn-primary" data-dismiss="modal">确定</button>
+	        </div>
+	      </div>
+	    </div>
+	  	</c:when>
+	  	<c:otherwise>
+		<!-- login.js -->
+		<script type="text/javascript" src="${pageContext.request.contextPath }/customize/js/login.js"></script>
+	  	<form method="post" >
 	    <div class="modal-dialog" role="document">
 	      <div class="modal-content">
 	        <div class="modal-header">
@@ -39,7 +66,7 @@
 	          <h4 class="modal-title text-center" id="logintitle">员工登录</h4>
 	        </div>
 	        <div class="modal-body container" style="max-width:90%;padding:10px;">
-	          <div class="alert alert-info text-center">
+	          <div class="alert alert-info text-center login-alert">
 	            请填入工号和密码
 	          </div>
 	          <div class="form-group"> <!-- has-error has-feedback -->
@@ -48,10 +75,8 @@
 	              <div class="input-group-addon">
 	                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 	              </div>
-	              <input type="text" class="form-control" id="no" placeholder="No" aria-describedby="staffNo"required oninvalid="setCustomValidity('请填写工号！')" oninput="setCustomValidity('')">
+	              <input type="text" class="form-control" id="no" placeholder="No" aria-describedby="staffNo" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写工号" >
 	            </div>
-	            <!-- <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-	            <span id="staffNo" class="sr-only">(success)</span> -->
 	          </div>
 	          <div class="form-group "> <!-- has-success has-feedback -->
 	            <label for="password" class="control-label" style="letter-spacing:20px;cursor:pointer;">密码</label>
@@ -59,23 +84,23 @@
 	              <div class="input-group-addon">
 	                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 	              </div>
-	              <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="staffPassword" required oninvalid="setCustomValidity('请填写密码！')" oninput="setCustomValidity('')">
+	              <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="staffPassword" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写密码" >
 	            </div>
-	           <!--  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-	            <span id="staffPassword" class="sr-only">(success)</span> -->
 	            </div>
 	        </div>
 	        <div class="modal-footer">
-	          <div class="col-md-6">
-	            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">取消</button>
+	          <div class="col-md-offset-1 col-md-4">
+	            <button type="button" class="btn btn-default btn-block login-cancel" data-dismiss="modal">取消</button>
 	          </div>
-	          <div class="col-md-6">
-	            <button type="submit" class="btn btn-primary btn-block">登录</button>
+	          <div class="col-md-offset-2 col-md-4">
+	            <button type="submit" class="btn btn-primary btn-block staff-login-btn">登录</button>
 	          </div>
 	        </div>
 	      </div>
 	    </div>
 	    </form>
+	  	</c:otherwise>
+	  </c:choose>
 	  </div>
   </c:if>
 
@@ -90,7 +115,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">HYH <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></a>
+        <a class="navbar-brand" href="home.html">HYH <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -99,7 +124,7 @@
           <%-- <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
           <li ><a href="#" ${currStaff==null?"data-toggle='modal' data-target='#login'":""}>HRMS</a></li> --%>
           <c:forEach items="${currNavbar!=null?currNavbar:commonNavbar}" var="currNB">
-          	<li class="${currNB.selected?'active':''}"><a href="${currNB.link}" ${currStaff==null?"data-toggle='modal' data-target='#login'":""} >${currNB.name}</a></li>
+          	<li class="${currNB.selected?'active':''}"><a href="${currNB.link}" ${currStaff==null&&!currNB.selected&&currNB.id!=1?"data-toggle='modal' data-target='#login'":""} >${currNB.name}</a></li>
           </c:forEach>
           <li class=""><a href="#" title="more..."><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
         </ul>
@@ -132,7 +157,7 @@
          	</li>
           	</c:when>
           	<c:otherwise>
-          		<li><a href="basic/stafftoLogin.do">登录</a></li>
+          		<li class="${currPageName=='login'?'active':''}"><a href="stafftoLogin.html">登录</a></li>
           	</c:otherwise>
           </c:choose>
           <li><a href="#">关于</a></li>

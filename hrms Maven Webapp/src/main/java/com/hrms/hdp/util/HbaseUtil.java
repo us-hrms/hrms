@@ -26,6 +26,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 import com.hrms.hdp.entity.ColumnInfo;
 
+
 public class HbaseUtil {
 	private Configuration config;
 	

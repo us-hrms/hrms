@@ -6,6 +6,23 @@
 <struts>
 	<!-- 人事管理的action配置 -->
     <package name="personnel" extends="struts-default" namespace="/pers">
-    	
+    	<action name="*OfAA" class="attendanceAction" method="{1}">
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
+    	<action name="*OfDA" class="departmentAction" method="{1}">
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
+    	<action name="*OfHA" class="holidayAction" method="{1}">
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
+    	<action name="*OfPAA" class="positionAdjustmentAction" method="{1}">
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
+    	<action name="*OfPA" class="positionAction" method="{1}">
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
+    	<action name="*OfQSA" class="quitStaffAction" method="{1}">
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
     </package>
 </struts>

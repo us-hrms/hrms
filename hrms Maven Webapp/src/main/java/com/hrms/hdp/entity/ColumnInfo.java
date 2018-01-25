@@ -1,5 +1,7 @@
 package com.hrms.hdp.entity;
 
+import java.io.Serializable;
+
 import org.apache.hadoop.hbase.util.Bytes;
 
 public class ColumnInfo {

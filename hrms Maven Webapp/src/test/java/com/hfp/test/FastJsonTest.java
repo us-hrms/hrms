@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public class FastJsonTest {
 
-	@Test
+//	@Test
 	public void json(){
 		boolean result = true;
 		System.out.println(JSONObject.toJSONString(result));

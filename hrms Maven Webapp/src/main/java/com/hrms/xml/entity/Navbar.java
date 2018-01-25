@@ -229,7 +229,6 @@ public class Navbar implements Serializable {
 	public boolean isExists(Long id){
 		return this.customizes.containsKey(id);
 	}
-	
-	
+
 	
 }

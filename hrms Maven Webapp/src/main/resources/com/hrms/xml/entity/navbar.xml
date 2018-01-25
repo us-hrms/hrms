@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <navbars>
 	<commone>
-		<nav id="1" name="首页" link="home" selected="true" />
+		<nav id="1" name="首页" link="home.html" selected="true" />
 		<nav id="2" name="HRMS" link="#" />
 	</commone>
 	<customizes>

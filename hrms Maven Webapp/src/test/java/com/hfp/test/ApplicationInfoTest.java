@@ -21,13 +21,13 @@ public class ApplicationInfoTest {
 
 	static ApplicationInfo appInfo;
 	
-	@BeforeClass
+//	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		appInfo = context.getBean(ApplicationInfo.class);
 	}
 	
-	@Test
+//	@Test
 	public void info(){
 		RolePermissions rp = Dom4jUtil.readRolePermissions();
 		Map<Integer, Menu> rmMap = appInfo.getMenuMap();

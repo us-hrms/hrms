@@ -61,7 +61,7 @@ public class Dom4UtilTest {
 		}
 	}
 
-	@Test
+//	@Test
 	public void getNavbar(){
 		Navbar navbar= Dom4jUtil.readNavbar();
 		System.out.println(navbar);

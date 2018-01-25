@@ -1,12 +1,13 @@
 package com.hrms.xml.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Nav implements Serializable {
-	private Long id;
-	private String name;
-	private String link;
-	private boolean selected = false;
+	private Long id;//菜单编号
+	private String name;//菜单名称
+	private String link;//菜单链接
+	private boolean selected = false;//是否选中
 	
 	public Nav() {
 		super();
@@ -59,5 +60,19 @@ public class Nav implements Serializable {
 		return new Nav(this.id, this.name, this.link, this.selected);
 	}
 	
+	/**
+	 * 修改选中项
+	 * @param id
+	 * @param collection
+	 * @return
+	 */
+	public static void select(Long id,List<Nav> collection){
+		for (Nav nav : collection) {
+			if(nav.getId().equals(id))
+				nav.selected = true;
+			else
+				nav.selected = false;
+		}
+	}
 	
 }
