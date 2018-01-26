@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.hrms.entity.Cultivate;
 import com.hrms.scope.ServletScopeAware;
+import com.hrms.util.MenuHelper;
 
 @Controller
 @Scope("prototype")
@@ -12,7 +13,16 @@ public class CultivateAction extends ServletScopeAware {
 	private Cultivate cultivate;
     private String toJsp;
     private String toAction;
+    private String itemId;
     
+    public String cultivate(){
+
+		//设置菜单选项
+		if(itemId != null)
+			MenuHelper.changeMenu(session, itemId);
+    	this.toJsp = "jsp/cultivatePlan/cultivate";
+    	return "tojsp";
+    }
     
 	public Cultivate getCultivate() {
 		return cultivate;
@@ -32,5 +42,15 @@ public class CultivateAction extends ServletScopeAware {
 	public void setToAction(String toAction) {
 		this.toAction = toAction;
 	}
-    
+
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
 }

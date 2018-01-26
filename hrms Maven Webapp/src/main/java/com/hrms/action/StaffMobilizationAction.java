@@ -12,6 +12,8 @@ public class StaffMobilizationAction extends ServletScopeAware {
     private String toJsp;
     private String toAction;
     private StaffMobilization staffMobi;
+    private String itemId;
+    
 	public String getToJsp() {
 		return toJsp;
 	}
@@ -30,6 +32,16 @@ public class StaffMobilizationAction extends ServletScopeAware {
 	public void setStaffMobi(StaffMobilization staffMobi) {
 		this.staffMobi = staffMobi;
 	}
-    
+
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
     
 }

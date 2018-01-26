@@ -12,6 +12,7 @@ public class CertificateAction extends ServletScopeAware {
     private String toJsp;
     private String toAction;
     private Certificate certificate;
+    private String itemId;
     
     
     
@@ -33,7 +34,17 @@ public class CertificateAction extends ServletScopeAware {
 	public void setCertificate(Certificate certificate) {
 		this.certificate = certificate;
 	}
-    
+
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
     
 
 }

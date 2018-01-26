@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 
 import com.hrms.entity.Attendance;
 import com.hrms.scope.ServletScopeAware;
+import com.hrms.util.MenuHelper;
+import com.hrms.util.NavbarHelper;
 
 @Controller
 @Scope("prototype")
@@ -12,9 +14,16 @@ public class AttendanceAction extends ServletScopeAware {
 	private Attendance attendance;
     private String toJsp;
     private String toAction;
+    private String itemId;
+    private Long navId;
 
 	public String attendance(){
-		
+		//设置nvabar
+		if(navId != null)
+			NavbarHelper.changeNavbar(session, navId);
+		//设置菜单选项
+		if(itemId != null)
+			MenuHelper.changeMenu(session, itemId);
 		toJsp = "jsp/personnelManager/attendance";
 		return "tojsp";
 	}
@@ -47,6 +56,29 @@ public class AttendanceAction extends ServletScopeAware {
 	public void setToAction(String toAction) {
 		this.toAction = toAction;
 	}
+
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
+
+	public Long getNavId() {
+		return navId;
+	}
+
+
+	public void setNavId(Long navId) {
+		this.navId = navId;
+	}
+
+
+	
 	
 	
 }

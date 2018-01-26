@@ -136,7 +136,8 @@ public class Navbar implements Serializable {
 	public List<Nav> getCommonAndCustomizeNavsClone(Long id){
 		try {
 			List<Nav> temp = clone(this.common);
-			temp.addAll(clone(customizes.get(id)));
+			if(this.customizes.containsKey(id))
+				temp.addAll(clone(customizes.get(id)));
 			return temp;
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block

@@ -14,12 +14,13 @@ public class HomeAction extends ServletScopeAware{
 	
     private String toJsp;
     private String toAction;
+    private Long navId;
 	
 	public String toHome(){
     	List<Nav> currNav = (List<Nav>) session.getAttribute("currNavbar");
     	if(currNav == null)
     		currNav = (List<Nav>) application.getAttribute("commonNavbar");
-		Nav.select(1l, currNav);
+		Nav.setSelected(1l, currNav);
     	session.setAttribute("currNavbar", currNav);
 		this.toJsp = "jsp/home";
 		return "success";
@@ -40,6 +41,17 @@ public class HomeAction extends ServletScopeAware{
 	public void setToAction(String toAction) {
 		this.toAction = toAction;
 	}
+
+	public Long getNavId() {
+		return navId;
+	}
+
+	public void setNavId(Long navId) {
+		this.navId = navId;
+	}
+
+	
+
 	
 	
 }

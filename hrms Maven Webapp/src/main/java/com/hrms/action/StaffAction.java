@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import com.hrms.entity.Staff;
 import com.hrms.scope.ServletScopeAware;
 import com.hrms.service.StaffService;
+import com.hrms.util.MenuHelper;
+import com.hrms.util.NavbarHelper;
 import com.hrms.util.PrintWriteUtil;
 import com.hrms.xml.entity.Menu;
 import com.hrms.xml.entity.Nav;
@@ -24,17 +26,19 @@ public class StaffAction extends ServletScopeAware {
     private Staff staff;
     private String toJsp;
     private String toAction;
+    private String itemId;
+    private Long navId;
     
     /**
      * 去登录页面
      * @return
      */
     public String toLogin(){
-    	List<Nav> currNav = (List<Nav>) session.getAttribute("currNavbar");
-    	if(currNav == null)
-    		currNav = (List<Nav>) application.getAttribute("commonNavbar");
-		Nav.select(0l, currNav);
-    	session.setAttribute("currNavbar", currNav);
+//    	List<Nav> currNav = (List<Nav>) session.getAttribute("currNavbar");
+//    	if(currNav == null)
+//    		currNav = (List<Nav>) application.getAttribute("commonNavbar");
+//		Nav.setSelected(0l, currNav);
+		NavbarHelper.changeNavbar(session, 0l);
 	    toJsp = "jsp/login";
 	    return "toLoginSuccess";
     }
@@ -46,8 +50,8 @@ public class StaffAction extends ServletScopeAware {
     public String loginAjax(){
 	    staff = staffService.login(staff);
 	    if(staff != null){
-		    session.setAttribute("currStaff", staff);
-		    Long id = staff.getDataDictionaryByTypeId().getId();
+	    	/*
+	     	Long id = staff.getDataDictionaryByTypeId().getId();
 		    //从application拿出参数
 		    //拿出所有的角色菜单
 		    Map<Integer, Menu> menu = (Map<Integer, Menu>)application.getAttribute("roleMenuMap");
@@ -56,9 +60,34 @@ public class StaffAction extends ServletScopeAware {
 		    session.setAttribute("currMenu", menu.get(id.intValue()));
 		    //放入当前staff对应的导航菜单栏
 		    session.setAttribute("currNavbar", navbar.getCommonAndCustomizeNavsClone(id));
+	    	}
+	    	*/
+		    session.setAttribute("currStaff", staff);
+		    //设置导航栏项
+		    NavbarHelper.setStaffOfNavbar(session, staff.getId());
+		    //设置菜单栏项
+		    MenuHelper.setStaffTypeOfMenu(session, staff.getDataDictionaryByTypeId().getId());
 	    }
    	    PrintWriteUtil.write(response, staff!=null?"true":"false");
 	    return null;
+    }
+    
+    public String newStaffManager(){
+
+		//设置菜单选项
+		if(itemId != null)
+			MenuHelper.changeMenu(session, itemId);
+    	this.toJsp = "jsp/staffInfoManager/newStaffManager";
+    	return "tojsp";
+    }
+    
+    public String staffBaseInfo(){
+
+		//设置菜单选项
+		if(itemId != null)
+			MenuHelper.changeMenu(session, itemId);
+    	this.toJsp = "jsp/staffInfoManager/staffBaseInfo";
+    	return "tojsp";
     }
 	
 	public StaffService getStaffService() {
@@ -92,5 +121,23 @@ public class StaffAction extends ServletScopeAware {
 	public void setToAction(String toAction) {
 		this.toAction = toAction;
 	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
+	public Long getNavId() {
+		return navId;
+	}
+
+	public void setNavId(Long navId) {
+		this.navId = navId;
+	}
+	
    
 }

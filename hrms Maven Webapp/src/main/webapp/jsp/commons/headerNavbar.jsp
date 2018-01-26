@@ -75,7 +75,7 @@
 	              <div class="input-group-addon">
 	                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 	              </div>
-	              <input type="text" class="form-control" id="no" placeholder="No" aria-describedby="staffNo" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写工号" >
+	              <input type="text" class="form-control" name="staff.no" id="no" placeholder="No" aria-describedby="staffNo" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写工号" >
 	            </div>
 	          </div>
 	          <div class="form-group "> <!-- has-success has-feedback -->
@@ -84,7 +84,7 @@
 	              <div class="input-group-addon">
 	                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 	              </div>
-	              <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="staffPassword" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写密码" >
+	              <input type="password" class="form-control" name="staff.password" id="password" placeholder="Password" aria-describedby="staffPassword" data-container="body" data-toggle="popover" data-placement="top" data-content="请填写密码" >
 	            </div>
 	            </div>
 	        </div>
@@ -157,7 +157,7 @@
          	</li>
           	</c:when>
           	<c:otherwise>
-          		<li class="${currPageName=='login'?'active':''}"><a href="stafftoLogin.html">登录</a></li>
+          		<li class="${currPageName=='login'?'active':''}"><a href="toLoginInSa.html">登录</a></li>
           	</c:otherwise>
           </c:choose>
           <li><a href="#">关于</a></li>

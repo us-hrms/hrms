@@ -6,22 +6,33 @@
 <struts>
 	<!-- 人事管理的action配置 -->
     <package name="personnel" extends="struts-default" namespace="/pers">
-    	<action name="*OfAA" class="attendanceAction" method="{1}">
+    	<action name="*InAaOf*_*" class="attendanceAction" method="{1}">
+    		<param name="itemId">{2}</param>
+    		<param name="navId">{3}</param>
     		<result name="tojsp">../${toJsp}.jsp</result>
     	</action>
-    	<action name="*OfDA" class="departmentAction" method="{1}">
+    	<action name="*InAaOf*" class="attendanceAction" method="{1}">
+    		<param name="itemId">{2}</param>
     		<result name="tojsp">../${toJsp}.jsp</result>
     	</action>
-    	<action name="*OfHA" class="holidayAction" method="{1}">
+    	<action name="*InDaOf*" class="departmentAction" method="{1}">
+    		<param name="itemId">{2}</param>
     		<result name="tojsp">../${toJsp}.jsp</result>
     	</action>
-    	<action name="*OfPAA" class="positionAdjustmentAction" method="{1}">
+    	<action name="*InHaOf*" class="holidayAction" method="{1}">
+    		<param name="itemId">{2}</param>
     		<result name="tojsp">../${toJsp}.jsp</result>
     	</action>
-    	<action name="*OfPA" class="positionAction" method="{1}">
+    	<action name="*InPaaOf*" class="positionAdjustmentAction" method="{1}">
+    		<param name="itemId">{2}</param>
     		<result name="tojsp">../${toJsp}.jsp</result>
     	</action>
-    	<action name="*OfQSA" class="quitStaffAction" method="{1}">
+    	<action name="*InPaOf*" class="positionAction" method="{1}">
+    		<param name="itemId">{2}</param>
+    		<result name="tojsp">../${toJsp}.jsp</result>
+    	</action>
+    	<action name="*InQsaOf*" class="quitStaffAction" method="{1}">
+    		<param name="itemId">{2}</param>
     		<result name="tojsp">../${toJsp}.jsp</result>
     	</action>
     </package>

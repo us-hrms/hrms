@@ -66,7 +66,7 @@ public class Nav implements Serializable {
 	 * @param collection
 	 * @return
 	 */
-	public static void select(Long id,List<Nav> collection){
+	public static void setSelected(Long id,List<Nav> collection){
 		for (Nav nav : collection) {
 			if(nav.getId().equals(id))
 				nav.selected = true;

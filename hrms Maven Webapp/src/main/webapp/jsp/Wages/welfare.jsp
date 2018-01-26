@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <table class="ui blue selectable celled table">
 		          <thead>
 		            <tr>
-		              <th colspan="5" class="h4 center aligned"><span style="letter-spacing:20px;">职位信</span>息</th>
+		              <th colspan="5" class="h4 center aligned"><span style="letter-spacing:20px;">福利待遇信</span>息</th>
 		            </tr>
 		            <tr>
 		              <th>编号 / ID</th>

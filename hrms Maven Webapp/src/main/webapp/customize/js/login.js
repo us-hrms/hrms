@@ -39,11 +39,11 @@ $(function(){
 		.removeClass("alert-danger").addClass("alert-info");
 	});
 	$(".staff-login-btn").click(function(){
-		var form  = $(this).parent("form");//获得表单对象
+		var form  = $(this).parents("form");//获得表单对象
 		//如果检查通过  异步提交
 		if(check())
 			$.ajax({
-				url:"staffloginAjax.do",
+				url:"loginAjaxInSa.ajax",
 				data:form.serialize(),
 				type:"post",
 				dataType:"text",

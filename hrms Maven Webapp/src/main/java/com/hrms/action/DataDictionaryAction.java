@@ -11,6 +11,8 @@ public class DataDictionaryAction {
 	private DataDictionary dataDictionary;
     private String toJsp;
     private String toAction;
+    private String itemId;
+    
 	public DataDictionary getDataDictionary() {
 		return dataDictionary;
 	}
@@ -29,4 +31,14 @@ public class DataDictionaryAction {
 	public void setToAction(String toAction) {
 		this.toAction = toAction;
 	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
 }

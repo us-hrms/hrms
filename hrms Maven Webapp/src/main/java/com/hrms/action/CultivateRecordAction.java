@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.hrms.entity.CultivateRecord;
 import com.hrms.scope.ServletScopeAware;
+import com.hrms.util.MenuHelper;
 
 @Controller
 @Scope("prototype")
@@ -12,6 +13,17 @@ public class CultivateRecordAction extends ServletScopeAware {
 	private CultivateRecord cultivateRecord;
     private String toJsp;
     private String toAction;
+    private String itemId;
+    
+    public String cultivateRecord(){
+
+		//设置菜单选项
+		if(itemId != null)
+			MenuHelper.changeMenu(session, itemId);
+    	this.toJsp = "jsp/cultivatePlan/cultivateRecord";
+    	return "tojsp";
+    }
+    
 	public CultivateRecord getCultivateRecord() {
 		return cultivateRecord;
 	}
@@ -30,7 +42,17 @@ public class CultivateRecordAction extends ServletScopeAware {
 	public void setToAction(String toAction) {
 		this.toAction = toAction;
 	}
-    
+
+
+	public String getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
     
     
 }
