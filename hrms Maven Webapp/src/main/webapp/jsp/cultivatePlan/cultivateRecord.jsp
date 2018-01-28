@@ -60,9 +60,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 		    <div class="container-fluid well" id="container-Info">
+		    <form >
 		      <!-- search header -->
 		      <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
-		      <form >
 		        <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 		          <div class="form-group col-md-4">
 		              <label class="control-label">平 台 名 称：</label>
@@ -109,7 +109,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <button class="btn btn-info btn-block"><span style="letter-spacing:30px;">查</span>询</button>
 		          </div>
 		        </div>
-		      </form>
 		      </div>
 		      <!-- attendance info -->
 		      <div class="container-fluid" style="margin-top:20px;border-left:1px dashed #008080;border-right:1px dashed #008080;border-radius:20px;padding:30px 40px 0px;max-width:95%;">
@@ -269,25 +268,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          </tfoot>
 		        </table>
 		
-		        <!-- 创建培训项目 Model -->
-		        <div class="modal fade" id="newCultReco" tabindex="-1" role="dialog" aria-labelledby="CultRecoModel" style="margin-top:230px;">
-		          <div class="modal-dialog" role="document">
-		            <div class="modal-content">
-		              <div class="modal-header">
-		                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                <h4 class="modal-title" id="CultRecoModel">创建培训项目</h4>
-		              </div>
-		              <div class="modal-body">
-		                ...
-		              </div>
-		              <div class="modal-footer">
-		                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-		                <button type="button" class="btn btn-primary">创建</button>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		        <!-- 分页 -->
+		        <!-- 分页  -->
 		        <div class="text-center">
 		          <ul class="pagination">
 		            <li><a href="#">上一页</a></li>
@@ -300,7 +281,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          </ul>
 		        </div>
 		      </div>
+		      </form>
 		    </div>
+		    <!-- 创建培训项目 Model -->
+	        <div class="modal fade" id="newCultReco" tabindex="-1" role="dialog" aria-labelledby="CultRecoModel" style="margin-top:230px;">
+	          <div class="modal-dialog" role="document">
+	            <div class="modal-content">
+	              <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                <h4 class="modal-title" id="CultRecoModel">创建培训项目</h4>
+	              </div>
+	              <div class="modal-body">
+	                ...
+	              </div>
+	              <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	                <button type="button" class="btn btn-primary">创建</button>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
 		
 		    <!-- background -->
 		    <div class="container-fluid well" id="container-Edit">

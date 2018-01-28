@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -41,9 +42,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 	    <div class="container-fluid well">
+	    <form >
 	      <!-- search header -->
 	      <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
-	      <form >
 	        <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 	          <div class="form-group col-md-4">
 	              <label class="control-label">姓 名：</label>
@@ -79,7 +80,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            <button class="btn btn-info btn-block"><span style="letter-spacing:40px;">查</span>询</button>
 	          </div>
 	        </div>
-	      </form>
 	      </div>
 	
 	
@@ -99,6 +99,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          </tr>
 	        </thead>
 	        <tbody>
+	        	<c:forEach items="${atteList}" end="10" var="item">
+	        		<tr>
+			            <td>${item.staff.no}</td>
+			            <td>${item.staff.name}</td>
+			            <td>${item.time}</td>
+			            <td class="info">${item.dataDictionary.value}</td>
+			            <td class="center aligned">
+			              <!-- <a href="#" title="编辑"><span class="glyphicon glyphicon-edit text-success" aria-hidden="true"></span></a> -->
+			              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
+			              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
+			            </td>
+			         </tr>
+	        	</c:forEach>
 	          <tr>
 	            <td>1</td>
 	            <td>No Action</td>
@@ -206,6 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </div>
 	      </div>
 	
+	      </form>
 	    </div>
 	  </div>
 	</div>

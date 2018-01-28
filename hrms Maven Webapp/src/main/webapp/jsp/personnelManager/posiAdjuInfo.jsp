@@ -54,9 +54,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 	      <div class="container-fluid well" id="container-Info">
+	      <form >
 	        <!-- search header -->
 	        <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
-	        <form >
+	        
 	          <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 	            <div class="form-group col-md-4">
 	                <label class="control-label">职 位 名 称：</label>
@@ -98,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              <button class="btn btn-info btn-block" data-toggle="modal" data-target="#findResult"><span style="letter-spacing:30px;">查</span>询</button>
 	            </div>
 	          </div>
-	        </form>
+	        
 	        </div>
 	        <!-- attendance info -->
 	        <div class="container-fluid" style="margin-top:20px;border-left:1px dashed #008080;border-right:1px dashed #008080;border-radius:20px;padding:30px 40px 0px;max-width:95%;">
@@ -227,8 +228,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              </tr>
 	            </tbody>
 	          </table>
+		
+	          <!-- 分页 -->
+	          <div class="text-center">
+	            <ul class="pagination">
+	              <li><a href="#">上一页</a></li>
+	              <li class="active"><a>1</a></li>
+	              <li><a href="#">2</a></li>
+	              <li><a href="#">3</a></li>
+	              <li><a href="#">4</a></li>
+	              <li><a href="#">5</a></li>
+	              <li><a href="#">下一页</a></li>
+	            </ul>
+	          </div>
+	        </div>
+	        </form>
+	      </div>
 	
-	          <!-- 查询 Model -->
+	 <!-- 查询 Model -->
 	          <div class="modal fade" id="findResult" tabindex="-1" role="dialog" aria-labelledby="findResultModel" style="margin-top:230px;">
 	            <div class="modal-dialog" role="document">
 	              <div class="modal-content">
@@ -256,21 +273,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              </div>
 	            </div>
 	          </div>
-	          <!-- 分页 -->
-	          <div class="text-center">
-	            <ul class="pagination">
-	              <li><a href="#">上一页</a></li>
-	              <li class="active"><a>1</a></li>
-	              <li><a href="#">2</a></li>
-	              <li><a href="#">3</a></li>
-	              <li><a href="#">4</a></li>
-	              <li><a href="#">5</a></li>
-	              <li><a href="#">下一页</a></li>
-	            </ul>
-	          </div>
-	        </div>
-	      </div>
-	
+	          
+	         
 	      <!-- background -->
 	      <div class="container-fluid well" id="container-Edit">
 	        <!-- search header -->

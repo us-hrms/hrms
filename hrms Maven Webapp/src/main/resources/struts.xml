@@ -7,6 +7,7 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<constant name="struts.action.extension" value="ajax,html,do,"></constant>
 	<!-- <constant name="struts.objectFactory.spring.autoWire" value="type" /> -->
+	
     <!-- 配置文件导入 -->
     <include file="struts2/struts-basic.xml"/>
     <include file="struts2/struts-personnel.xml"/>

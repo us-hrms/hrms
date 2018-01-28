@@ -160,7 +160,7 @@
           		<li class="${currPageName=='login'?'active':''}"><a href="toLoginInSa.html">登录</a></li>
           	</c:otherwise>
           </c:choose>
-          <li><a href="#">关于</a></li>
+          <li><a href="#">关于 <span class="glyphicon glyphicon-link"></span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

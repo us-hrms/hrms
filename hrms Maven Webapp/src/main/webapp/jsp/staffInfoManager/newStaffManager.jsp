@@ -54,9 +54,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 		    <div class="container-fluid well" id="container-Info">
+		    <form >
 		      <!-- search header -->
 		      <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
-		      <form >
+		      
 		        <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 		          <div class="form-group col-md-6">
 		              <label class="control-label">员 工 工 号：</label>
@@ -94,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            <button class="btn btn-info btn-block"><span style="letter-spacing:30px;">查</span>询</button>
 		          </div>
 		        </div>
-		      </form>
+		      
 		      </div>
 		      <!-- attendance info -->
 		      <div class="container-fluid" style="margin-top:20px;border-left:1px dashed #008080;border-right:1px dashed #008080;border-radius:20px;padding:30px 40px 0px;max-width:95%;">
@@ -247,6 +248,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          </ul>
 		        </div>
 		      </div>
+		      </form>
 		    </div>
 		
 		    <!-- background -->
