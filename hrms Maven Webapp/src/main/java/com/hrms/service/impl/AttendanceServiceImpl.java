@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.Attendance;
+import com.hrms.page.Page;
 import com.hrms.service.AttendanceService;
 
 @Service
@@ -49,23 +50,15 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public List<Attendance> getAttendances(Attendance attendance) {
+	public List<Attendance> getAttendances(Attendance attendance,Page page) {
 		// TODO Auto-generated method stub
-		return dao.find(attendance);
+		return dao.find(attendance, page);
 	}
 
 	@Override
 	public Attendance getAttendance(Serializable id) {
 		// TODO Auto-generated method stub
 		return (Attendance) dao.get(Attendance.class, id);
-	}
-
-	public Dao getDao() {
-		return dao;
-	}
-
-	public void setDao(Dao dao) {
-		this.dao = dao;
 	}
 
 	@Override
@@ -79,7 +72,10 @@ public class AttendanceServiceImpl implements AttendanceService {
 		}
 		return false;
 	}
-	
-	
-	
+
+	@Override
+	public List<Attendance> getAttendances(Attendance attendance) {
+		// TODO Auto-generated method stub
+		return dao.find(attendance);
+	}
 }

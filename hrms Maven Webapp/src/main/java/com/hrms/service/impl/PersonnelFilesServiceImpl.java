@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.PersonnelFiles;
+import com.hrms.page.Page;
 import com.hrms.service.PersonnelFilesService;
 
 @Service
@@ -58,6 +59,13 @@ public class PersonnelFilesServiceImpl implements PersonnelFilesService {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<PersonnelFiles> getPersonnelFiless(
+			PersonnelFiles personnelFiles, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(personnelFiles, page);
 	}
 	
 	

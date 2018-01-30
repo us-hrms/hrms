@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.PositionAdjustment;
+import com.hrms.page.Page;
 import com.hrms.service.PositionAdjustmentService;
 
 @Service
@@ -61,6 +62,13 @@ public class PositionAdjustmentServiceImpl implements PositionAdjustmentService 
 		    e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<PositionAdjustment> getPositionAdjustment(
+			PositionAdjustment positionAdjustment, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(positionAdjustment, page);
 	}
     
 	

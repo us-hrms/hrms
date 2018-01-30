@@ -2,6 +2,8 @@ package com.hrms.entity;
 
 import java.util.Date;
 
+import com.hrms.service.StaffCertificateService;
+
 /**
  * StaffCertificate entity. @author MyEclipse Persistence Tools
  */
@@ -9,7 +11,7 @@ import java.util.Date;
 public class StaffCertificate implements java.io.Serializable {
 
 	// Fields
-
+   
 	private Long id;
 	private Certificate certificate;
 	private CultivateStaff cultivateStaff;
@@ -17,6 +19,7 @@ public class StaffCertificate implements java.io.Serializable {
 	private String no;
 	private Date date;
 	private String photo;
+	private String whether;
 
 	// Constructors
 
@@ -97,6 +100,14 @@ public class StaffCertificate implements java.io.Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public String getWhether() {
+		return whether;
+	}
+
+	public void setWhether(String whether) {
+		this.whether = whether;
 	}
 	
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.Cultivate;
+import com.hrms.page.Page;
 
 public interface CultivateService {
 	
@@ -16,4 +17,6 @@ public interface CultivateService {
     List<Cultivate> getCultivates();
     
     List<Cultivate> getCultivates(Cultivate cultivate);
+    
+    List<Cultivate> getCultivates(Cultivate cultivate,Page page);
 }

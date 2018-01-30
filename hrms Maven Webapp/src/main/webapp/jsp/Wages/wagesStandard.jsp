@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -79,20 +80,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		              <label class="control-label">员 工  部 门：</label>
 		              <select class="form-control" style="width:196px;">
 		                <option value="-1">全部</option>
-		                <option>部门1</option>
-		                <option>部门2</option>
-		                <option>部门3</option>
-		                <option>部门4</option>
+		                <c:forEach items="${departments}" var="item">
+	                		<option value="${item.id}">${item.name}</option>
+	               	  	</c:forEach>
 		              </select>
 		          </div>
 		          <div class="form-group col-md-6">
 		              <label class="control-label">员 工 职 位：</label>
 		              <select class="form-control" style="width:196px;">
 		                <option value="-1">全部</option>
-		                <option>职位1</option>
-		                <option>职位2</option>
-		                <option>职位3</option>
-		                <option>职位4</option>
+		                <c:forEach items="${positions}" var="item">
+	                		<option value="${item.id}">${item.name}</option>
+	               	  	</c:forEach>
 		              </select>
 		          </div>
 		        </div>
@@ -121,123 +120,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            </tr>
 		          </thead>
 		          <tbody>
+		          <c:forEach items="${stafflists}" var="item">
 		            <tr>
-		              <td>1</td>
-		              <td data-container="body" data-toggle="popover">No Action</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
+		              <td>${item.no}</td>
+		              <td data-container="body" data-toggle="popover">${item.name}</td>
+		              <td>${item.wagesStandard.basicWages}</td>
+		              <td>${item.wagesStandard.transportationAllowance}</td>
+		              <td>${item.wagesStandard.communicationAllowance}</td>
+		              <td>${item.wagesStandard.lunchAllowance}</td>
 		              <td class="center aligned">
 		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
 		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
 		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
 		              </td>
 		            </tr>
-		            <tr>
-		              <td>2</td>
-		              <td data-container="body" data-toggle="popover">Approved</td>
-		              <td >Requires call</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned disabled">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>3</td>
-		              <td data-container="body" data-toggle="popover">Denied</td>
-		              <td >None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>4</td>
-		              <td data-container="body" data-toggle="popover">No Action</td>
-		              <td >None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>5</td>
-		              <td data-container="body" data-toggle="popover">Approved</td>
-		              <td >Requires call</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>6</td>
-		              <td data-container="body" data-toggle="popover">Denied</td>
-		              <td >None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>7</td>
-		              <td data-container="body" data-toggle="popover">Denied</td>
-		              <td >None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>8</td>
-		              <td data-container="body" data-toggle="popover">Denied</td>
-		              <td >None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
-		            <tr>
-		              <td>9</td>
-		              <td data-container="body" data-toggle="popover">Denied</td>
-		              <td >None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td>None</td>
-		              <td class="center aligned">
-		                <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-		                <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-		                <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-		              </td>
-		            </tr>
+		            </c:forEach>
 		          </tbody>
 		          <tfoot class="full-width">
 		            <tr>

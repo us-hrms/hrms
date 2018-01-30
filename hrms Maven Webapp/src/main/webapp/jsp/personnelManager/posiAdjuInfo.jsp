@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <table class="ui blue selectable celled table">
 	            <thead>
 	              <tr>
-	                <th colspan="6" class="h4 center aligned"><span style="letter-spacing:20px;">职称聘任记</span>录</th>
+	                <th colspan="6" class="h4 center aligned"><span style="letter-spacing:20px;">职称聘任记录</span></th>
 	              </tr>
 	              <tr>
 	                <th>所属部门 / Dept</th>

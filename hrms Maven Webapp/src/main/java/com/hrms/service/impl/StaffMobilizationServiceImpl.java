@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.StaffMobilization;
+import com.hrms.page.Page;
 import com.hrms.service.StaffMobilizationService;
 
 @Service
@@ -67,6 +68,13 @@ public class StaffMobilizationServiceImpl implements StaffMobilizationService {
 	public StaffMobilization getStaffMobilization(StaffMobilization id) {
 		// TODO Auto-generated method stub
 		return (StaffMobilization) dao.get(StaffMobilization.class, id);
+	}
+
+	@Override
+	public List<StaffMobilization> getStaffMobilizations(
+			StaffMobilization staffMobilization, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(staffMobilization, page);
 	}
 
 }

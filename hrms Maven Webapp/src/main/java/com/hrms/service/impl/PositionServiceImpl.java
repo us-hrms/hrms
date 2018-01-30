@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.Position;
+import com.hrms.page.Page;
 import com.hrms.service.PositionService;
 
 @Service
@@ -67,6 +68,12 @@ public class PositionServiceImpl implements PositionService {
 	public Position getPosition(Position id) {
 		// TODO Auto-generated method stub
 		return (Position) dao.get(Position.class, id);
+	}
+
+	@Override
+	public List<Position> getPositions(Position position, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(position, page);
 	} 
     
 	

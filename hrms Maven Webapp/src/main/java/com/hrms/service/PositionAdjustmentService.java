@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.PositionAdjustment;
+import com.hrms.page.Page;
 
 public interface PositionAdjustmentService {
 	/**
@@ -18,6 +19,10 @@ public interface PositionAdjustmentService {
 	 * 根据条件查询
 	 */
     List<PositionAdjustment> getPositionAdjustment(PositionAdjustment positionAdjustment);
+    /**
+	 * 分页查询
+	 */
+    List<PositionAdjustment> getPositionAdjustment(PositionAdjustment positionAdjustment,Page page);
     /**
     * 更新
     */

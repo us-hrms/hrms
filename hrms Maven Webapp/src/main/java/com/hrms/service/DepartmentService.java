@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.Department;
+import com.hrms.page.Page;
 
 public interface DepartmentService {
 	   /**
@@ -15,6 +16,11 @@ public interface DepartmentService {
 	    * @return
 	    */
        List<Department> getDepartments(Department department);
+       /**
+	    * 分页查询
+	    * @return
+	    */
+       List<Department> getDepartments(Department department,Page page);
        /**
         * 查询全部
         */

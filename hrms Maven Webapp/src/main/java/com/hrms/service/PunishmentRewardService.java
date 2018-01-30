@@ -3,6 +3,7 @@ package com.hrms.service;
 import java.util.List;
 
 import com.hrms.entity.PunishmentReward;
+import com.hrms.page.Page;
 
 public interface PunishmentRewardService {
       
@@ -35,6 +36,12 @@ public interface PunishmentRewardService {
 	 * @return
 	 */
 	List<PunishmentReward> getPunishmentRewards(PunishmentReward punishmentReward);
+	/**
+	 * 分页查询奖罚记录
+	 * @param punishmentReward
+	 * @return
+	 */
+	List<PunishmentReward> getPunishmentRewards(PunishmentReward punishmentReward,Page page);
 	/**
 	 * 根据id查询单个奖罚记录
 	 * @param id

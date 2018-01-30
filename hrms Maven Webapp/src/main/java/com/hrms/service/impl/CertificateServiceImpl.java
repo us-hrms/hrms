@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.Certificate;
+import com.hrms.page.Page;
 import com.hrms.service.CertificateService;
 
 @Service
@@ -57,6 +58,12 @@ public class CertificateServiceImpl implements CertificateService {
 	public List<Certificate> getCertificates(Certificate certificate) {
 		// TODO Auto-generated method stub
 		return dao.find(certificate);
+	}
+
+	@Override
+	public List<Certificate> getCertificates(Certificate certificate, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(certificate, page);
 	}
 
 }

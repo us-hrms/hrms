@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.Staff;
+import com.hrms.page.Page;
 import com.hrms.service.StaffService;
 import com.hrms.util.MD5Util;
 
@@ -69,5 +70,11 @@ public class StaffServiceImpl implements StaffService {
 			// TODO: handle exception
 		}
 		return false;
+	}
+
+	@Override
+	public List<Staff> getStaffs(Staff staff, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(staff, page);
 	}
 }

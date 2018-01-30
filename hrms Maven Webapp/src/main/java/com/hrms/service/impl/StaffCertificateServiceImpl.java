@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.StaffCertificate;
+import com.hrms.page.Page;
 import com.hrms.service.StaffCertificateService;
 
 @Service
@@ -67,6 +68,13 @@ public class StaffCertificateServiceImpl implements StaffCertificateService {
 	public StaffCertificate getStaffCertificate(StaffCertificate id) {
 		// TODO Auto-generated method stub
 		return (StaffCertificate) dao.get(StaffCertificate.class, id);
+	}
+
+	@Override
+	public List<StaffCertificate> getStaffCertificates(
+			StaffCertificate staffCertificate, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(staffCertificate, page);
 	}
     
 }

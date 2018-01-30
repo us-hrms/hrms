@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.CultivateRecord;
+import com.hrms.page.Page;
 import com.hrms.service.CultivateRecordService;
 
 @Service
@@ -60,6 +61,13 @@ public class CultivateRecordServiceImpl  implements CultivateRecordService{
 			CultivateRecord cultivateRecord) {
 		// TODO Auto-generated method stub
 		return dao.find(cultivateRecord);
+	}
+
+	@Override
+	public List<CultivateRecord> getCultivateRecords(
+			CultivateRecord cultivateRecord, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(cultivateRecord, page);
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.CultivateStaff;
+import com.hrms.page.Page;
 
 public interface CultivateStaffService {
 	    /**
@@ -27,4 +28,8 @@ public interface CultivateStaffService {
         * 按条件查询
         */
 	   List<CultivateStaff> getCultivateStaffs(CultivateStaff cultivateStaff);
+	   /**
+        * 分页查询
+        */
+	   List<CultivateStaff> getCultivateStaffs(CultivateStaff cultivateStaff,Page page);
 }

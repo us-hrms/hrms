@@ -3,6 +3,7 @@ package com.hrms.service;
 import java.util.List;
 
 import com.hrms.entity.WagesStandard;
+import com.hrms.page.Page;
 
 public interface WagesStandardService {
 	/**
@@ -34,6 +35,12 @@ public interface WagesStandardService {
      * @return
      */
     List<WagesStandard> getWagesStandards(WagesStandard wagesStandard);
+    /**
+     * 分页薪酬
+     * @param wagesStandard
+     * @return
+     */
+    List<WagesStandard> getWagesStandards(WagesStandard wagesStandard,Page page);
     /**
      * 根据id查询单个薪酬
      * @param id

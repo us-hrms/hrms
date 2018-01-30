@@ -15,21 +15,25 @@ import com.hrms.service.AttendanceService;
 public class AttendanceServiceTest {
 	
 	static AttendanceService as;
-	//@BeforeClass
+	@BeforeClass
 	public static void inital(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		as = context.getBean(AttendanceService.class);
 	}
-	//@Test
+	/*@Test
 	public void get(){
-		List<Attendance> list = as.getAttendances();
+		Attendance attendances =new Attendance();
+		Staff staff = new Staff();
+		staff.setNo("0001");
+		attendances.setStaff(staff);
+		List<Attendance> list = as.getAttendances(attendances);
 		for (Attendance attendance : list) {
 			System.out.println(attendance.getStaff().getName());
 		}
 		Assert.assertEquals(true, list.size()>0);
-	}
+	}*/
 	
-	//@Test
+	/*//@Test
 	public void get2(){
 		Attendance atte = new Attendance();
 		Staff staff = new Staff();
@@ -39,5 +43,5 @@ public class AttendanceServiceTest {
 		for (Attendance attendance : list) {
 			System.out.println("depart:"+attendance.getStaff().getDepartment().getId()+"\tstaffid:"+attendance.getStaff().getId());
 		}
-	}
+	}*/
 }

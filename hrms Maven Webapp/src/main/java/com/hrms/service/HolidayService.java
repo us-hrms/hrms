@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.Holiday;
+import com.hrms.page.Page;
 
 public interface HolidayService {
 	    /**
@@ -18,6 +19,10 @@ public interface HolidayService {
 	     * 按条件查询
 	     */
 	    List<Holiday> getHolidays(Holiday holiday);
+	    /**
+	     * 分页查询
+	     */
+	    List<Holiday> getHolidays(Holiday holiday,Page page);
 	    /**
 	     * 更新
 	     */

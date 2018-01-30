@@ -20,6 +20,12 @@ public class Attendance implements java.io.Serializable {
 	/** default constructor */
 	public Attendance() {
 	}
+	
+//	@Override
+//	public String toString() {
+//		return "Attendance [id=" + id + ", staff=" + staff.getName() + ", time=" + time
+//				+ "]";
+//	}
 
 	/** full constructor */
 	public Attendance(DataDictionary dataDictionary, Staff staff, Timestamp time) {

@@ -1,14 +1,23 @@
 package com.hrms.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.hrms.entity.DataDictionary;
+import com.hrms.entity.Department;
+import com.hrms.entity.Position;
 import com.hrms.entity.Staff;
+import com.hrms.entity.StaffContract;
+import com.hrms.page.Page;
 import com.hrms.scope.ServletScopeAware;
+import com.hrms.service.DataDictionaryService;
+import com.hrms.service.DepartmentService;
+import com.hrms.service.PositionService;
 import com.hrms.service.StaffService;
 import com.hrms.util.MenuHelper;
 import com.hrms.util.NavbarHelper;
@@ -23,6 +32,12 @@ public class StaffAction extends ServletScopeAware {
 
     @Autowired
     private StaffService staffService;
+    @Autowired
+    private PositionService positionService;
+    @Autowired
+    private DataDictionaryService dataDictionaryService;
+    @Autowired
+    private DepartmentService departmentService;
     private Staff staff;
     private String toJsp;
     private String toAction;
@@ -73,7 +88,26 @@ public class StaffAction extends ServletScopeAware {
     }
     
     public String newStaffManager(){
-
+    	List<Position> positions = positionService.getPositions();
+    	List<Department> departments = departmentService.getDepartments();
+    	Staff staff = new Staff();
+    	DataDictionary dataDictionary = new DataDictionary();
+    	dataDictionary.setId(16L);//实习ID
+    	staff.setDataDictionaryByStatus(dataDictionary);
+    	List<Staff> staffss = staffService.getStaffs(staff);
+    	Page page = new Page();
+        page.setPageCountBySize(staffss.size());
+        List<Staff> staffsss = staffService.getStaffs(staff, page);
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy"); 
+		String dates = format.format(new Date());//获取当前时间
+		for (Staff staffs : staffsss) {
+			String datess = format.format(staffs.getBornDate());
+			Long c =(long) (Integer.parseInt(dates)-Integer.parseInt(datess));
+			staffs.setAge(c);
+		}
+    	request.setAttribute("positions", positions);
+    	request.setAttribute("departments", departments);
+    	request.setAttribute("staffss", staffsss);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);
@@ -82,7 +116,26 @@ public class StaffAction extends ServletScopeAware {
     }
     
     public String staffBaseInfo(){
-
+    	List<Staff> staffss = staffService.getStaffs();
+    	Page page = new Page();
+        page.setPageCountBySize(staffss.size());
+        List<Staff> staffsss = staffService.getStaffs(new Staff(), page);
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy"); 
+		String dates = format.format(new Date());//获取当前时间
+		for (Staff staffs : staffsss) {
+			String datess = format.format(staffs.getBornDate());
+			Long c =(long) (Integer.parseInt(dates)-Integer.parseInt(datess));
+			staffs.setAge(c);
+		}
+    	List<Position> positions = positionService.getPositions();
+    	List<Department> departments = departmentService.getDepartments();
+    	DataDictionary dataDictionary = new DataDictionary();
+    	dataDictionary.setTableColumn("STAFF_STATUS");
+    	List<DataDictionary> dataDictionarys = dataDictionaryService.getDataDictionarys(dataDictionary);
+    	request.setAttribute("positions", positions);
+    	request.setAttribute("staffss", staffsss);
+    	request.setAttribute("departments", departments);
+    	request.setAttribute("dataDictionarys", dataDictionarys);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);

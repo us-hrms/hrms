@@ -17,6 +17,7 @@ public class Department implements java.io.Serializable {
 	private Set staffMobilizationsForDefore = new HashSet(0);
 	private Set positions = new HashSet(0);
 	private Set staffs = new HashSet(0);
+	private String principal;//部门负责人
 
 	// Constructors
 
@@ -87,6 +88,14 @@ public class Department implements java.io.Serializable {
 
 	public void setStaffs(Set staffs) {
 		this.staffs = staffs;
+	}
+
+	public String getPrincipal() {
+		return principal;
+	}
+
+	public void setPrincipal(String principal) {
+		this.principal = principal;
 	}
 
 }

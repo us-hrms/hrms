@@ -7,9 +7,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.hrms.entity.Attendance;
+import com.hrms.entity.DataDictionary;
 import com.hrms.entity.Staff;
+import com.hrms.page.Page;
 import com.hrms.scope.ServletScopeAware;
 import com.hrms.service.AttendanceService;
+import com.hrms.service.DataDictionaryService;
+import com.hrms.service.StaffService;
 import com.hrms.util.MenuHelper;
 import com.hrms.util.NavbarHelper;
 
@@ -19,6 +23,10 @@ public class AttendanceAction extends ServletScopeAware {
 	
 	@Autowired
 	private AttendanceService atteService;
+	@Autowired
+	private DataDictionaryService dataDictionaryService;
+	@Autowired
+	private StaffService staffService;
 	private Attendance attendance;
     private String toJsp;
     private String toAction;
@@ -30,8 +38,16 @@ public class AttendanceAction extends ServletScopeAware {
 		Attendance temp = new Attendance();
 		staff.setId(currStaff.getId());
 		temp.setStaff(staff);
+		DataDictionary dataDictionary = new DataDictionary();
+		dataDictionary.setTableColumn("ATTENDANCE_TYPE");
 		List<Attendance> attes = atteService.getAttendances(temp);
-		request.setAttribute("atteList", attes);
+		Page page = new Page();
+		page.setPageCountBySize(attes.size());
+		List<Attendance> atteslist =atteService.getAttendances(temp, page);
+		List<DataDictionary> Dictionarylist = dataDictionaryService.getDataDictionarys(dataDictionary);
+		request.setAttribute("Dictionarylist", Dictionarylist);
+		request.setAttribute("atteList", atteslist);
+		request.setAttribute("page", page);
 		//设置nvabar
 		if(navId != null)
 			NavbarHelper.changeNavbar(session, navId);
@@ -41,8 +57,16 @@ public class AttendanceAction extends ServletScopeAware {
 		toJsp = "jsp/personnelManager/attendance";
 		return "tojsp";
 	}
-	
-	
+	/**
+	 * 根据条件查
+	 * @return
+	 */
+	public String condition(String name){
+		
+		toJsp = "jsp/personnelManager/attendance";
+		return "tojsp";
+	}
+	//FROM `data_dictionary` WHERE TableColumn='ATTENDANCE_TYPE'
 	public Attendance getAttendance() {
 		return attendance;
 	}
@@ -100,9 +124,11 @@ public class AttendanceAction extends ServletScopeAware {
 	public void setAtteService(AttendanceService atteService) {
 		this.atteService = atteService;
 	}
-
-
-	
-	
+	public DataDictionaryService getDataDictionaryService() {
+		return dataDictionaryService;
+	}
+	public void setDataDictionaryService(DataDictionaryService dataDictionaryService) {
+		this.dataDictionaryService = dataDictionaryService;
+	}
 	
 }

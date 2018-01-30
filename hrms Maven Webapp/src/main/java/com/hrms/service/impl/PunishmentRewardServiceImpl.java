@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.PunishmentReward;
+import com.hrms.page.Page;
 import com.hrms.service.PunishmentRewardService;
 
 
@@ -69,6 +70,13 @@ public class PunishmentRewardServiceImpl implements PunishmentRewardService {
 	public PunishmentReward getPunishmentReward(PunishmentReward id) {
 		// TODO Auto-generated method stub
 		return (PunishmentReward) dao.get(PunishmentReward.class, id);
+	}
+
+	@Override
+	public List<PunishmentReward> getPunishmentRewards(
+			PunishmentReward punishmentReward, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(punishmentReward, page);
 	}
     
 }

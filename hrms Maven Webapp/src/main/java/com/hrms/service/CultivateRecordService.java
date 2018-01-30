@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.CultivateRecord;
+import com.hrms.page.Page;
 
 public interface CultivateRecordService {
 	
@@ -41,4 +42,10 @@ public interface CultivateRecordService {
 	 * @return
 	 */
 	List<CultivateRecord> getCultivateRecords(CultivateRecord cultivateRecord);
+	/**
+	 * ∑÷“≥≤È—Ø
+	 * @param cultivateRecord
+	 * @return
+	 */
+	List<CultivateRecord> getCultivateRecords(CultivateRecord cultivateRecord,Page page);
 }

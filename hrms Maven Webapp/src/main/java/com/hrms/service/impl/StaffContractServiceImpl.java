@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.StaffContract;
+import com.hrms.page.Page;
 import com.hrms.service.StaffContractService;
 
 @Service
@@ -63,5 +64,12 @@ public class StaffContractServiceImpl implements StaffContractService {
 	public StaffContract getStaffContract(StaffContract id) {
 		// TODO Auto-generated method stub
 		return (StaffContract) dao.get(StaffContract.class,id);
+	}
+
+	@Override
+	public List<StaffContract> getStaffContracts(StaffContract staffContract,
+			Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(staffContract, page);
 	}
 }

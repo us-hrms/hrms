@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.Holiday;
+import com.hrms.page.Page;
 import com.hrms.service.HolidayService;
 
 @Service
@@ -58,5 +59,11 @@ public class HolidayServiceImpl implements HolidayService {
 		    e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<Holiday> getHolidays(Holiday holiday, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(holiday, page);
 	}
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.Attendance;
+import com.hrms.page.Page;
 
 public interface AttendanceService {
 	
@@ -34,6 +35,11 @@ public interface AttendanceService {
 	List<Attendance> getAttendances();
 	
 	/**
+	 * 根据条件查并分页
+	 * @return
+	 */
+	List<Attendance> getAttendances(Attendance attendance, Page page);
+	/**
 	 * 根据条件查
 	 * @return
 	 */
@@ -45,5 +51,6 @@ public interface AttendanceService {
 	 * @return
 	 */
 	Attendance getAttendance(Serializable id);
+
 	
 }

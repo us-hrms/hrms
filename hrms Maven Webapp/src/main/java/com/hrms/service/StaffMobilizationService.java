@@ -3,6 +3,7 @@ package com.hrms.service;
 import java.util.List;
 
 import com.hrms.entity.StaffMobilization;
+import com.hrms.page.Page;
 
 public interface StaffMobilizationService {
 	/**
@@ -36,6 +37,11 @@ public interface StaffMobilizationService {
 	 * @return
 	 */
 	List<StaffMobilization> getStaffMobilizations(StaffMobilization staffMobilization);
+	/**
+	 * 分页查
+	 * @return
+	 */
+	List<StaffMobilization> getStaffMobilizations(StaffMobilization staffMobilization,Page page);
 	
 	/**
 	 * 根据id获得单个对象

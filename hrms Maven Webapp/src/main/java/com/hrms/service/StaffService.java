@@ -3,6 +3,7 @@ package com.hrms.service;
 import java.util.List;
 
 import com.hrms.entity.Staff;
+import com.hrms.page.Page;
 
 public interface StaffService {
 	
@@ -43,6 +44,9 @@ public interface StaffService {
 	 * @return 员工集合
 	 */
 	List<Staff> getStaffs(Staff staff);
-	
+	/**
+	 * 分页查询
+	 */
+	List<Staff> getStaffs(Staff staff,Page page);
 	
 }

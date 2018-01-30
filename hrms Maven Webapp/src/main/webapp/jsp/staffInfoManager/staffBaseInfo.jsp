@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -71,10 +72,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                <label class="control-label">员 工 状 态：</label>
 	                <select class="form-control" style="width:196px;">
 	                  <option value="-1">全部</option>
-	                  <option>状态1</option>
-	                  <option>状态2</option>
-	                  <option>状态3</option>
-	                  <option>状态4</option>
+	                  <c:forEach items="${dataDictionarys}" var="item">
+	                	<option value="${item.id}">${item.value}</option>
+	               	  </c:forEach>
 	                </select>
 	            </div>
 	          </div>
@@ -83,20 +83,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                <label class="control-label">所 属 部 门：</label>
 	                <select class="form-control" style="width:196px;">
 	                  <option value="-1">全部</option>
-	                  <option>部门1</option>
-	                  <option>部门2</option>
-	                  <option>部门3</option>
-	                  <option>部门4</option>
+	                  <c:forEach items="${departments}" var="item">
+	                	<option value="${item.id}">${item.name}</option>
+	               	  </c:forEach>
 	                </select>
 	            </div>
 	            <div class="form-group col-md-6">
 	                <label class="control-label">所 属 职 位：</label>
 	                <select class="form-control" style="width:196px;">
 	                  <option value="-1">全部</option>
-	                  <option>职位1</option>
-	                  <option>职位2</option>
-	                  <option>职位3</option>
-	                  <option>职位4</option>
+	                  <c:forEach items="${positions}" var="item">
+	                	<option value="${item.id}">${item.name}</option>
+	               	  </c:forEach>
 	                </select>
 	            </div>
 	          </div>
@@ -133,13 +131,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              </tr>
 	            </thead>
 	            <tbody>
+	            <c:forEach items="${staffss}" var="item">
 	              <tr>
-	                <td>1</td>
-	                <td>No Action</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
+	                <td>${item.no}</td>
+	                <td>${item.name}</td>
+	                <td>${item.sex}</td>
+	                <td>${item.age}</td>
+	                <td>${item.position.name}</td>
+	                <td>${item.dataDictionaryByStatus.value}</td>
 	                <td class="center aligned">
 	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
 	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
@@ -150,142 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
 	                </td>
 	              </tr>
-	              <tr>
-	                <td>2</td>
-	                <td>Approved</td>
-	                <td >Requires call</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned disabled">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>3</td>
-	                <td>Denied</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>4</td>
-	                <td>No Action</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>5</td>
-	                <td>Approved</td>
-	                <td >Requires call</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>6</td>
-	                <td>Denied</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>7</td>
-	                <td>Denied</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>8</td>
-	                <td>Denied</td>
-	                <td>None</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td>9</td>
-	                <td>Denied</td>
-	                <td>None</td>
-	                <td>None</td>
-	                <td >None</td>
-	                <td>None</td>
-	                <td class="center aligned">
-	                  <a href="#" title="查看详情"><i class="unhide icon text-info"></i></a>
-	                  <a href="#" title="查看档案"><i class="archive icon text-info"></i></a>
-	                  <a href="#" title="查看合同"><i class="file text outline icon text-info"></i></a>
-	                  <a href="#" title="查看证书"><i class="newspaper icon text-info"></i></a>
-	                  <a href="#" title="修改信息"><i class="edit icon text-success"></i></a>
-	                  <a href="#" title="离职"><i class="external share icon text-warning"></i></a>
-	                  <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	                </td>
-	              </tr>
+	              </c:forEach>
 	            </tbody>
 	            <tfoot class="full-width">
 	              <tr>

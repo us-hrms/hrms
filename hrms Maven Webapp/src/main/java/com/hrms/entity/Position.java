@@ -17,7 +17,7 @@ public class Position implements java.io.Serializable {
 	private Set staffs = new HashSet(0);
 	private Set positionAdjustmentsForAfter = new HashSet(0);
 	private Set positionAdjustmentsForDefore = new HashSet(0);
-
+	
 	// Constructors
 
 	/** default constructor */

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.Department;
+import com.hrms.page.Page;
 import com.hrms.service.DepartmentService;
 
 @Service
@@ -58,6 +59,12 @@ public class DepartmentServiceImpl implements  DepartmentService{
 		    e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<Department> getDepartments(Department department, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(department, page);
 	}
     
 }

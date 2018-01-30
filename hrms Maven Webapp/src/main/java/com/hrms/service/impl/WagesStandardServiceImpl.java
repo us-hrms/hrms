@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.WagesStandard;
+import com.hrms.page.Page;
 import com.hrms.service.WagesStandardService;
 
 @Service
@@ -67,6 +68,13 @@ public class WagesStandardServiceImpl implements WagesStandardService {
 	public WagesStandard getWagesStandard(WagesStandard id) {
 		// TODO Auto-generated method stub
 		return (WagesStandard) dao.get(WagesStandard.class, id);
+	}
+
+	@Override
+	public List<WagesStandard> getWagesStandards(WagesStandard wagesStandard,
+			Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(wagesStandard, page);
 	}
 	
 }

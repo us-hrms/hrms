@@ -58,10 +58,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              <label class="control-label">类 型：</label>
 	              <select class="form-control" style="width:196px;">
 	                <option value="-1">全部</option>
-	                <option>2</option>
-	                <option>3</option>
-	                <option>4</option>
-	                <option>5</option>
+	                <c:forEach items="${Dictionarylist}" var="item">
+	                	<option value="${item.id}">${item.value}</option>
+	               	</c:forEach>
 	              </select>
 	          </div>
 	        </div>
@@ -99,12 +98,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          </tr>
 	        </thead>
 	        <tbody>
-	        	<c:forEach items="${atteList}" end="10" var="item">
+	        	<c:forEach items="${atteList}" var="item">
 	        		<tr>
 			            <td>${item.staff.no}</td>
 			            <td>${item.staff.name}</td>
 			            <td>${item.time}</td>
-			            <td class="info">${item.dataDictionary.value}</td>
+			            <c:if test="${item.dataDictionary.id ==27}">
+			            	<td class="info">${item.dataDictionary.value}</td>
+			            </c:if>
+			            <c:if test="${item.dataDictionary.id ==28}">
+			            	<td class="warning">${item.dataDictionary.value}</td>
+			            </c:if>
+			            <c:if test="${item.dataDictionary.id ==29}">
+			            	<td class="warning">${item.dataDictionary.value}</td>
+			            </c:if>
+			            <c:if test="${item.dataDictionary.id ==30}">
+			            	<td class="danger">${item.dataDictionary.value}</td>
+			            </c:if>
+			            <c:if test="${item.dataDictionary.id ==31}">
+			            	<td class="success">${item.dataDictionary.value}</td>
+			            </c:if>
 			            <td class="center aligned">
 			              <!-- <a href="#" title="编辑"><span class="glyphicon glyphicon-edit text-success" aria-hidden="true"></span></a> -->
 			              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
@@ -112,97 +125,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			            </td>
 			         </tr>
 	        	</c:forEach>
-	          <tr>
-	            <td>1</td>
-	            <td>No Action</td>
-	            <td>None</td>
-	            <td class="info">正常</td>
-	            <td class="center aligned">
-	              <!-- <a href="#" title="编辑"><span class="glyphicon glyphicon-edit text-success" aria-hidden="true"></span></a> -->
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>2</td>
-	            <td>Approved</td>
-	            <td>Requires call</td>
-	            <td class="warning">迟到</td>
-	            <td class="center aligned disabled">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>3</td>
-	            <td>Denied</td>
-	            <td>None</td>
-	            <td class="warning">早退</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>4</td>
-	            <td>No Action</td>
-	            <td>None</td>
-	            <td class="danger">旷工</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>5</td>
-	            <td>Approved</td>
-	            <td>Requires call</td>
-	            <td class="success">请假</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>6</td>
-	            <td>Denied</td>
-	            <td>None</td>
-	            <td class="info">正常</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>7</td>
-	            <td>Denied</td>
-	            <td>None</td>
-	            <td class="info">正常</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>8</td>
-	            <td>Denied</td>
-	            <td>None</td>
-	            <td class="info">正常</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>9</td>
-	            <td>Denied</td>
-	            <td>None</td>
-	            <td class="info">正常</td>
-	            <td class="center aligned">
-	              <a href="#" title="编辑"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
 	        </tbody>
 	      </table>
 	      <!-- 分页 -->
@@ -218,7 +140,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </ul>
 	      </div>
 	      </div>
-	
 	      </form>
 	    </div>
 	  </div>

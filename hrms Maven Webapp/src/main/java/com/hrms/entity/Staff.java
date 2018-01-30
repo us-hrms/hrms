@@ -41,11 +41,13 @@ public class Staff implements java.io.Serializable {
 	private Set personnelFileses = new HashSet(0);
 	private Set punishmentRewards = new HashSet(0);
 	private Set staffContracts = new HashSet(0);
+	private Long age ;//ƒÍ¡‰
 
 	// Constructors
 
 	/** default constructor */
 	public Staff() {
+		
 	}
 
 	/** minimal constructor */
@@ -101,11 +103,56 @@ public class Staff implements java.io.Serializable {
 		this.punishmentRewards = punishmentRewards;
 		this.staffContracts = staffContracts;
 	}
+	
 
 	// Property accessors
 
 	public Long getId() {
 		return this.id;
+	}
+	
+	public Staff(Long id, DataDictionary dataDictionaryByAcademicdegreeId,
+			DataDictionary dataDictionaryByStatus,
+			DataDictionary dataDictionaryByEducationId,
+			DataDictionary dataDictionaryByTypeId, WagesStandard wagesStandard,
+			Position position, Department department, String no, String name,
+			String password, String sex, Date bornDate, String address,
+			String phone, String email, String photo, Set positionAdjustments,
+			Set payWageses, Set cultivateRecords, Set attendances,
+			Set staffMobilizations, Set cultivateStaffs, Set staffCertificates,
+			Set quitStaffs, Set holidaies, Set personnelFileses,
+			Set punishmentRewards, Set staffContracts, Long age) {
+		super();
+		this.id = id;
+		this.dataDictionaryByAcademicdegreeId = dataDictionaryByAcademicdegreeId;
+		this.dataDictionaryByStatus = dataDictionaryByStatus;
+		this.dataDictionaryByEducationId = dataDictionaryByEducationId;
+		this.dataDictionaryByTypeId = dataDictionaryByTypeId;
+		this.wagesStandard = wagesStandard;
+		this.position = position;
+		this.department = department;
+		this.no = no;
+		this.name = name;
+		this.password = password;
+		this.sex = sex;
+		this.bornDate = bornDate;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.photo = photo;
+		this.positionAdjustments = positionAdjustments;
+		this.payWageses = payWageses;
+		this.cultivateRecords = cultivateRecords;
+		this.attendances = attendances;
+		this.staffMobilizations = staffMobilizations;
+		this.cultivateStaffs = cultivateStaffs;
+		this.staffCertificates = staffCertificates;
+		this.quitStaffs = quitStaffs;
+		this.holidaies = holidaies;
+		this.personnelFileses = personnelFileses;
+		this.punishmentRewards = punishmentRewards;
+		this.staffContracts = staffContracts;
+		this.age = age;
 	}
 
 	public void setId(Long id) {
@@ -337,5 +384,38 @@ public class Staff implements java.io.Serializable {
 	public void setStaffContracts(Set staffContracts) {
 		this.staffContracts = staffContracts;
 	}
+    
+	public Long getAge() {
+		return age;
+	}
 
+	public void setAge(Long age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Staff [attendances=" + attendances + "]";
+	}
+
+//	@Override
+//	public String toString() {
+//		return "Staff [id=" + id + ", no=" + no + ", name=" + name
+//				+ ", password=" + password + ", sex=" + sex + ", bornDate="
+//				+ bornDate + ", address=" + address + ", phone=" + phone
+//				+ ", email=" + email + ", photo=" + photo
+//				+ ", positionAdjustments=" + positionAdjustments
+//				+ ", payWageses=" + payWageses + ", cultivateRecords="
+//				+ cultivateRecords + ", attendances=" + attendances
+//				+ ", staffMobilizations=" + staffMobilizations
+//				+ ", cultivateStaffs=" + cultivateStaffs
+//				+ ", staffCertificates=" + staffCertificates + ", quitStaffs="
+//				+ quitStaffs + ", holidaies=" + holidaies
+//				+ ", personnelFileses=" + personnelFileses
+//				+ ", punishmentRewards=" + punishmentRewards
+//				+ ", staffContracts=" + staffContracts + "]";
+//	}
+	
+	
+	
 }

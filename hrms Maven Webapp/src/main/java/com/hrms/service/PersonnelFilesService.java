@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.PersonnelFiles;
+import com.hrms.page.Page;
 
 public interface PersonnelFilesService {
 	 /**
@@ -18,6 +19,10 @@ public interface PersonnelFilesService {
 	 * 根据条件查询
 	 */
     List<PersonnelFiles> getPersonnelFiless(PersonnelFiles personnelFiles);
+    /**
+	 * 分页查询
+	 */
+    List<PersonnelFiles> getPersonnelFiless(PersonnelFiles personnelFiles,Page page);
     /**
     * 更新
     */

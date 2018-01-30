@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.PayWages;
+import com.hrms.page.Page;
 
 public interface PayWagesService {
 	    /**
@@ -18,6 +19,10 @@ public interface PayWagesService {
 		 * 根据条件查询
 		 */
 	   List<PayWages> getPayWagess(PayWages payWages);
+	   /**
+		 * 分页查询
+		 */
+	   List<PayWages> getPayWagess(PayWages payWages,Page page);
 	   /**
 	    * 更新
 	    */

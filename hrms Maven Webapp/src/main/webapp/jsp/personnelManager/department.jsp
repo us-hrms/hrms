@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -108,106 +110,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          </tr>
 	        </thead>
 	        <tbody>
+	         <c:forEach items="${departments}" var="item">   	
 	          <tr>
-	            <td>1</td>
-	            <td>No Action</td>
-	            <td  data-container="body" data-toggle="popover">None</td>
+	            <td>${item.id}</td>
+	            <td>${item.name}</td>
+	            <c:forEach items="${item.staffs}" var="it"> 
+	            <c:if test="${it.position.id == 2}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 4}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 8}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 14}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 23}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 25}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 32}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            <c:if test="${it.position.id == 38}">
+	            	<td data-container="body" data-toggle="popover">${it.name}</td>
+	            </c:if>
+	            </c:forEach>
 	            <!-- data-content="Vivamus sagittis lacus vel augue  laoreet rutrum faucibus." -->
-	            <td>25</td>
+	            <td>
+	            	${fn:length(item.staffs)}
+	            </td>
 	            <td class="center aligned">
 	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
 	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
 	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
 	            </td>
 	          </tr>
-	          <tr>
-	            <td>2</td>
-	            <td>Approved</td>
-	            <td data-container="body" data-toggle="popover">Requires call</td>
-	            <td>22</td>
-	            <td class="center aligned disabled">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>3</td>
-	            <td>Denied</td>
-	            <td data-container="body" data-toggle="popover">None</td>
-	            <td>57</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>4</td>
-	            <td>No Action</td>
-	            <td data-container="body" data-toggle="popover">None</td>
-	            <td>63</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>5</td>
-	            <td>Approved</td>
-	            <td data-container="body" data-toggle="popover">Requires call</td>
-	            <td>50</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>6</td>
-	            <td>Denied</td>
-	            <td data-container="body" data-toggle="popover">None</td>
-	            <td>24</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>7</td>
-	            <td>Denied</td>
-	            <td data-container="body" data-toggle="popover">None</td>
-	            <td>33</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>8</td>
-	            <td>Denied</td>
-	            <td data-container="body" data-toggle="popover">None</td>
-	            <td>11</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>9</td>
-	            <td>Denied</td>
-	            <td data-container="body" data-toggle="popover">None</td>
-	            <td>23</td>
-	            <td class="center aligned">
-	              <a href="#" title="查看"><i class="unhide icon text-info"></i></a>
-	              <a href="#" title="修改"><i class="edit icon text-success"></i></a>
-	              <a href="#" title="删除"><i class="trash outline icon text-danger"></i></a>
-	            </td>
-	          </tr>
+	          </c:forEach>
 	        </tbody>
 	        <tfoot class="full-width">
 	          <tr>

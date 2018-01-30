@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.hrms.entity.Certificate;
+import com.hrms.page.Page;
 
 public interface CertificateService {
 	/**
@@ -36,4 +37,10 @@ public interface CertificateService {
 	 * @return
 	 */
 	List<Certificate> getCertificates(Certificate certificate);
+	/**
+	 * ∑÷“≥≤È—Ø
+	 * @param certificate
+	 * @return
+	 */
+	List<Certificate> getCertificates(Certificate certificate,Page page);
 }

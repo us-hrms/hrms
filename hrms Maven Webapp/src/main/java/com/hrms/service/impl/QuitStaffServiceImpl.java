@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.dao.Dao;
 import com.hrms.entity.QuitStaff;
+import com.hrms.page.Page;
 import com.hrms.service.QuitStaffService;
 
 @Service
@@ -67,6 +68,12 @@ public class QuitStaffServiceImpl implements QuitStaffService {
 	public QuitStaff getQuitStaff(QuitStaff id) {
 		// TODO Auto-generated method stub
 		return (QuitStaff) dao.get(QuitStaff.class, id);
+	}
+
+	@Override
+	public List<QuitStaff> getQuitStaffs(QuitStaff quitStaff, Page page) {
+		// TODO Auto-generated method stub
+		return dao.find(quitStaff, page);
 	}
 	
 }

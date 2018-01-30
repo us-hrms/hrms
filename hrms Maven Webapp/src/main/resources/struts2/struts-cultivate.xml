@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<!-- 培训计划的action配置区域 -->
+	<!-- 培训计划的action配置区域 --><!-- /cult/aInCraOf.html -->
     <package name="cultivate" extends="struts-default" namespace="/cult">
     	<action name="*InCaOf*" class="cultivateAction" method="{1}">
     		<param name="itemId">{2}</param>
