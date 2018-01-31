@@ -48,6 +48,7 @@ public class StaffContractAction extends ServletScopeAware {
     	request.setAttribute("departments", departments);
     	request.setAttribute("Dictionarylist", Dictionarylist);
     	request.setAttribute("staffContracts", staffContractss);
+    	request.setAttribute("page", page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);

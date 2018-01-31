@@ -55,29 +55,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 	      <div class="container-fluid well" id="container-Info">
-	      <form >
+	      <form action="pers/conditionInPaOf.html" method="post">
 	        <!-- search header -->
 	        <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
 	        
 	          <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 	            <div class="form-group col-md-4">
 	                <label class="control-label">职 位 名 称：</label>
-	                <input type="text" class="form-control" placeholder="Like Position Name">
+	                <input type="text" class="form-control" name="position.name" placeholder="Like Position Name">
 	            </div>
 	            <div class="form-group col-md-4">
 	                <label class="control-label">所 属 部 门：</label>
-	                <select class="form-control" style="width:196px;">
+	                <select class="form-control" name="position.department.id" style="width:196px;">
 	                  <option value="-1">全部</option>
-	                  <c:forEach items="${departments}" end="5"  var="item">
+	                  <c:forEach items="${departments}"  var="item">
 	                	<option value="${item.id}">${item.name}</option>
 	               	  </c:forEach>
 	                </select>
 	            </div>
 	            <div class="form-group col-md-4">
 	                <label class="control-label">所 属 职 位：</label>
-	                <select class="form-control" style="width:196px;">
+	                <select class="form-control" name="position.id" style="width:196px;">
 	                  <option value="-1">全部</option>
-	                  <c:forEach items="${positions}" end="5"  var="item">
+	                  <c:forEach items="${positionss}" var="item">
 	                	<option value="${item.id}">${item.name}</option>
 	               	  </c:forEach>
 	                </select>

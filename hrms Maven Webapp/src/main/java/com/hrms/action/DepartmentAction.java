@@ -29,13 +29,28 @@ public class DepartmentAction extends ServletScopeAware {
     	page.setPageCountBySize(departments.size());
     	List<Department> departmentss = departmentService.getDepartments(new Department(), page);
     	request.setAttribute("departments", departmentss);
+    	request.setAttribute("page", page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);
     	toJsp = "jsp/personnelManager/department";
     	return "tojsp";
     }
-    
+    /**
+     * 按条件查询
+     * @param departments
+     * @return
+     */
+    public String department2(){
+    	List<Department> departments = departmentService.getDepartments(department);
+    	Page page = new Page();
+    	page.setPageCountBySize(departments.size());
+    	List<Department> departmentss = departmentService.getDepartments(department, page);
+    	request.setAttribute("departments", departmentss);
+    	request.setAttribute("page", page);
+    	toJsp = "jsp/personnelManager/department";
+    	return "tojsp";
+    }
 	public Department getDepartment() {
 		return department;
 	}

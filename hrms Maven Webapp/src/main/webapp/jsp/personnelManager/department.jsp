@@ -62,22 +62,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 	    <div class="container-fluid well" id="container-Info">
-	    <form >
+	    <form action="pers/department2InDaOf*.html" method="post">
 	      <!-- search header -->
 	      <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
 	      
 	        <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 	          <div class="form-group col-md-4">
 	              <label class="control-label">部 门 名 称：</label>
-	              <input type="text" class="form-control" placeholder="Like Dept Name">
+	              <input type="text" class="form-control" name ="department.name" placeholder="Like Dept Name">
 	          </div>
 	          <div class="form-group col-md-4">
 	              <label class="control-label">部 门 编 号：</label>
-	              <input type="text" class="form-control" placeholder="Dept ID">
+	              <input type="text" class="form-control" name ="department.id" placeholder="Dept ID">
 	          </div>
 	          <div class="form-group col-md-4">
 	              <label class="control-label">部 门 规 模：</label>
-	              <select class="form-control" style="width:196px;">
+	              <select class="form-control" name="department.sum" style="width:196px;">
 	                <option value="-1">全部</option>
 	                <option>1~50</option>
 	                <option>51~100</option>

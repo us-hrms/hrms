@@ -55,24 +55,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<jsp:include page="../commons/bodyMenu.jsp" />
   		<div class="col-md-10 main">
 	      <div class="container-fluid well" id="container-Info">
-	      <form >
+	      <form action="pers/conditionInHaOf.html" method="post">
 	        <!-- search header -->
 	        <div class="container-fluid" style="border-top:1px dashed #87CEEB;border-bottom:1px dashed #87CEEB;border-radius:20px;padding:20px 0px 10px 0px;max-width:90%;">
 	        
 	          <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 	            <div class="form-group col-md-6">
 	                <label class="control-label">工 号：</label>
-	                <input type="text" class="form-control" placeholder="No">
+	                <input type="text" class="form-control" name="holiday.staff.no" placeholder="No">
 	            </div>
 	            <div class="form-group col-md-6">
 	                <label class="control-label">姓 名：</label>
-	                <input type="text" class="form-control" placeholder="Like Staff Name">
+	                <input type="text" class="form-control" name="holiday.staff.name" placeholder="Like Staff Name">
 	            </div>
 	          </div>
 	          <div class="form-group form-inline text-center col-md-offset-1 col-md-10">
 	            <div class="form-group col-md-6">
 	                <label class="control-label">部 门：</label>
-	                <select class="form-control" style="width:196px;">
+	                <select class="form-control" style="width:196px;" name="holiday.dataDictionary.id">
 	                  <option value="-1">全部</option>
 		              <c:forEach items="${departments}"  var="item">
 		                	<option value="${item.id}">${item.name}</option>
@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            </div>
 	            <div class="form-group col-md-6">
 	                <label class="control-label">职 位：</label>
-	                <select class="form-control" style="width:196px;">
+	                <select class="form-control" style="width:196px;"name="holiday.staff.position.id">
 	                  <option value="-1">全部</option>
 	                  <c:forEach items="${positions}"  var="item">
 		                	<option value="${item.id}">${item.name}</option>

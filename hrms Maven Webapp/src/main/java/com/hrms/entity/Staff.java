@@ -392,12 +392,11 @@ public class Staff implements java.io.Serializable {
 	public void setAge(Long age) {
 		this.age = age;
 	}
-
 	@Override
 	public String toString() {
 		return "Staff [attendances=" + attendances + "]";
 	}
-
+    
 //	@Override
 //	public String toString() {
 //		return "Staff [id=" + id + ", no=" + no + ", name=" + name

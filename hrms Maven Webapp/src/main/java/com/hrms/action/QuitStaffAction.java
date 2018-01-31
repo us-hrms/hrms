@@ -50,6 +50,7 @@ public class QuitStaffAction extends ServletScopeAware {
 		request.setAttribute("quitStaffs", quitStaffss);
 		request.setAttribute("Position", Position);
 		request.setAttribute("department", department);
+		request.setAttribute("page", page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);

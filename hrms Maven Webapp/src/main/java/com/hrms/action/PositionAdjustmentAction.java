@@ -35,6 +35,7 @@ public class PositionAdjustmentAction extends ServletScopeAware {
         List<PositionAdjustment> positionAdjustmentss = positionAdjustmentService.getPositionAdjustment(new PositionAdjustment(), page);
     	request.setAttribute("departments",departments);
         request.setAttribute("positionAdjustments",positionAdjustmentss);
+        request.setAttribute("page", page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);

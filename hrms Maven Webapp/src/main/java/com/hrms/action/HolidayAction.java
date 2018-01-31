@@ -41,13 +41,31 @@ public class HolidayAction extends ServletScopeAware {
          request.setAttribute("holidays",holidayss);
          request.setAttribute("departments",departments);
          request.setAttribute("positions",positions);
+         request.setAttribute("page",page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);
     	toJsp = "jsp/personnelManager/holiday";
     	return "tojsp";
     }
-    
+    /**
+     * 根据条件查
+     * @return
+     */
+    public String condition(){
+    	List<Holiday> holidays = holidayService.getHolidays(holiday);
+        Page page = new Page();
+        page.setPageCountBySize(holidays.size());
+        List<Holiday> holidayss = holidayService.getHolidays(holiday, page);
+        List<Department> departments = departmentService.getDepartments();
+        List<Position> positions = positionService.getPositions();
+        request.setAttribute("holidays",holidayss);
+        request.setAttribute("departments",departments);
+        request.setAttribute("positions",positions);
+        request.setAttribute("page",page);
+    	toJsp = "jsp/personnelManager/holiday";
+    	return "tojsp";
+    }
 	public String getToJsp() {
 		return toJsp;
 	}

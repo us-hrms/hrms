@@ -29,19 +29,38 @@ public class PositionAction extends ServletScopeAware {
     
     public String position(){
     	List<Department> departments = departmentService.getDepartments();
-        List<Position> positions = positionService.getPositions();
+        List<Position> positionss = positionService.getPositions();
         Page page = new Page();
-        page.setPageCountBySize(positions.size());
-        List<Position> positionss = positionService.getPositions(new Position(), page);
+        page.setPageCountBySize(positionss.size());
+        List<Position> positions = positionService.getPositions(new Position(), page);
         request.setAttribute("departments",departments);
-        request.setAttribute("positions",positionss);
+        request.setAttribute("positionss",positionss);
+        request.setAttribute("positions",positions);
+        request.setAttribute("page",page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);
     	toJsp = "jsp/personnelManager/position";
     	return "tojsp";
     }
-    
+    /**
+     * 按条件
+     * @return
+     */
+    public String condition(){
+    	  List<Department> departments = departmentService.getDepartments();
+    	  List<Position> positionsss = positionService.getPositions();
+    	  List<Position> positionss = positionService.getPositions(position);
+          Page page = new Page();
+          page.setPageCountBySize(positionss.size());
+          List<Position> positions = positionService.getPositions(position, page);
+          request.setAttribute("positionss",positionsss);
+          request.setAttribute("positions",positions);
+          request.setAttribute("page",page);
+          request.setAttribute("departments",departments);
+    	toJsp = "jsp/personnelManager/position";
+    	return "tojsp";
+    }
 	public String getToJsp() {
 		return toJsp;
 	}

@@ -108,6 +108,7 @@ public class StaffAction extends ServletScopeAware {
     	request.setAttribute("positions", positions);
     	request.setAttribute("departments", departments);
     	request.setAttribute("staffss", staffsss);
+    	request.setAttribute("page", page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);
@@ -136,6 +137,7 @@ public class StaffAction extends ServletScopeAware {
     	request.setAttribute("staffss", staffsss);
     	request.setAttribute("departments", departments);
     	request.setAttribute("dataDictionarys", dataDictionarys);
+    	request.setAttribute("page", page);
 		//设置菜单选项
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);

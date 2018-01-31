@@ -48,6 +48,7 @@ public class PersonnelFilesAction extends ServletScopeAware {
     	request.setAttribute("personnelFiless", personnelFilesss);
     	request.setAttribute("positions", positions);
     	request.setAttribute("departments", departments);
+    	request.setAttribute("page", page);
 		//设置菜单选项 
 		if(itemId != null)
 			MenuHelper.changeMenu(session, itemId);

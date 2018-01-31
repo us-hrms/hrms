@@ -18,6 +18,7 @@ public class Department implements java.io.Serializable {
 	private Set positions = new HashSet(0);
 	private Set staffs = new HashSet(0);
 	private String principal;//部门负责人
+	private int sum; //部门人数
 
 	// Constructors
 
@@ -98,4 +99,12 @@ public class Department implements java.io.Serializable {
 		this.principal = principal;
 	}
 
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+	
 }
